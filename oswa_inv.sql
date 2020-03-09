@@ -39,9 +39,9 @@ CREATE TABLE IF NOT EXISTS `categories` (
 
 CREATE TABLE IF NOT EXISTS `log` (
 `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
   `remote_ip` varchar(255) NOT NULL,
-  `action` varchar(255) NOT NULL,
+  `action` varchar(255) DEFAULT NULL,
   `date` date NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
