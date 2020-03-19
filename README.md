@@ -1,8 +1,6 @@
 # inventory
 inventory management system with sales and orders
-***
-# Please click the Star button, improve chances others will find it.
-***
+
 # documentation
 
 -Install L.A.M.P. stack: ( MySQL is now MariaDB )
