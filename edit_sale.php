@@ -161,26 +161,6 @@ $s_qty_diff = 0;
 
     </div>
   </div>
-
-<?php
-	print "<pre>";
-	print_r($sale);
-	print "</pre>\n";
-?>
-
-      <?php
-	print "<pre>";
-	print_r($product);
-	print "</pre>\n";
-?>
-
-<?php
-	print "<pre>";
-	print_r($order);
-	print "</pre>\n";
-?>
-
-
   </div>
 </div>
 
