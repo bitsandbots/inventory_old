@@ -3,7 +3,7 @@ inventory management system with sales and orders
 
 # documentation
 
--Install L.A.M.P. stack: ( MySQL is now MariaDB )
+-Install L.A.M.P. stack: ( MySQL is now MariaDB ) ~ optionally install Wordpress
 -https://projects.raspberrypi.org/en/projects/lamp-web-server-with-wordpress/
 
 -Download and configure your Inventory Management System:
