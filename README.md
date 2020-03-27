@@ -1,21 +1,18 @@
 # inventory
 inventory management system with sales and orders
 
-# documentation
-
--Install L.A.M.P. stack: ( MySQL is now MariaDB ) ~ optionally install Wordpress
--https://projects.raspberrypi.org/en/projects/lamp-web-server-with-wordpress/
-
--Download and configure your Inventory Management System:
--https://coreconduit.com/2019/02/07/using-a-raspberry-pi-for-your-own-inventory-management-system/
+Not sure how this works?  Start with a clean ( empty ) database, then import **demo_inv.sql** and you've got some basic data to get started!
 
 ****
 Modified by Cory J. Potter aka CoreConduit Consulting Services 2018 - 2019
 ***
-The application was initially created by **Siamon Hasan**, using [php](http:php.net),
+The application was initially created by Siamon Hasan, using [php](http:php.net),
 [mysql](https://www.mysql.com) and [bootstrap](http://getbootstrap.com).
-### Installing this application is fairly easy, just follow these steps:
 ****
+
+# documentation
+-Install L.A.M.P. stack: ( MySQL is now MariaDB ) ~ optionally install Wordpress
+-https://projects.raspberrypi.org/en/projects/lamp-web-server-with-wordpress/
 
 1. Download the latest version.
 
@@ -33,5 +30,9 @@ The application was initially created by **Siamon Hasan**, using [php](http:php.
    **Username** : admin | **Username** : special | **Username** : user
    **Password** : admin | **Password** : special | **Password** : user
    
+****
+-Additional documentation and configuration for your Inventory Management System:
+-https://coreconduit.com/2019/02/07/using-a-raspberry-pi-for-your-own-inventory-management-system/
+
 # support
 Contact Cory:  https://coreconduit.com/about/
