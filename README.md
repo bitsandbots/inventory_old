@@ -32,4 +32,4 @@ The application was initially created by Siamon Hasan, using [php](http:php.net)
 -https://coreconduit.com/2019/02/07/using-a-raspberry-pi-for-your-own-inventory-management-system/
 
 # support
-Contact Cory:  https://coreconduit.com/about/
+Contact Cory:  https://coreconduit.com/contact/
