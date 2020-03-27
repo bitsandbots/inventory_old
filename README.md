@@ -13,13 +13,13 @@ The application was initially created by Siamon Hasan, using [php](http:php.net)
 
 * Download the latest version.
 
-* Not sure how this works?  Start with a clean ( empty ) database, then import **demo_inv.sql** and you've got some basic data to get    started! Import/load oswa_inv.sql into your mysql database. This should set up the basic structure of the database system.
+* Not sure how this works?  Start with a clean ( empty ) database, then import **demo_inv.sql** and you've got some basic data to get    started! Import/load **oswa_inv.sql** into your mysql database. This should set up the basic structure of the database system.
 
 * Modify the includes/config.php and change the variables to match your host, database, username and passwords.
 
-* Change all Folder permission inside uploads folder either add them to group call `www` if available or `777`.
+* Change all Folder permission inside uploads folder either add them to group call `www-data` if available or `777`.
 
-* Then loging by typing **username** and **password**:
+* Then logging in by typing **username** and **password**:
 
 
    Administrator        | Special User           | Default User
