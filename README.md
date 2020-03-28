@@ -2,10 +2,9 @@
 inventory management system with sales and orders
 
 ****
--Modified by Cory J. Potter aka CoreConduit Consulting Services 2018 - 2019
--Installed on a Raspberry Pi, should work with any L.A.M.P. stack.
+Modified by Cory J. Potter aka CoreConduit Consulting Services 2018 - 2019
 
--The application was initially created by Siamon Hasan, using [php](http:php.net),
+The application was initially created by Siamon Hasan, using [php](http:php.net),
 [mysql](https://www.mysql.com) and [bootstrap](http://getbootstrap.com).
 ****
 
