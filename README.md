@@ -15,7 +15,7 @@ The application was initially created by Siamon Hasan, using [php](http:php.net)
 
 * Download the latest version.
 
-* Not sure how this works?  Start with a clean ( empty ) database, then import **demo_inv.sql** and you've got some basic data to get    started! OR, try a clean database: import/load **oswa_inv.sql** into your mysql database. This should set up the basic structure of the database system.
+* Not sure how this works?  Start with a clean ( empty ) database, then import **demo_inv.sql** and you've got some basic data to get    started! OR, try a clean database: import/load **inventory.sql** into your mysql database. This should set up the basic structure of the database system.
 
 * Modify the includes/config.php and change the variables to match your host, database, username and passwords.
 
