@@ -181,7 +181,7 @@
                      <span class="input-group-addon">
                        <i class="glyphicon glyphicon-usd"></i>
                      </span>
-                     <input type="text" class="form-control" name="cost-price" placeholder="Cost Price">
+                     <input type="number" min="0" step="any" class="form-control" name="cost-price" placeholder="Cost Price">
                   </div>
                  </div>
 
@@ -190,7 +190,7 @@
                       <span class="input-group-addon">
                         <i class="glyphicon glyphicon-usd"></i>
                       </span>
-                      <input type="text" class="form-control" name="sale-price" placeholder="Selling Price">
+                      <input type="number" min="0" step="any" class="form-control" name="sale-price" placeholder="Selling Price">
                    </div>
                   </div>
 <!--     *************************     -->
