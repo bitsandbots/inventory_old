@@ -151,8 +151,7 @@ if(!$product){
                       <span class="input-group-addon">
                         <i class="glyphicon glyphicon-usd"></i>
                       </span>
-                      <input type="number" class="form-control" name="cost-price" value="<?php echo remove_junk($product['buy_price']);?>">
-                      <span class="input-group-addon">.00</span>
+                      <input type="text" class="form-control" name="cost-price" value="<?php echo remove_junk($product['buy_price']);?>">
                    </div>
                   </div>
                  </div>
@@ -163,8 +162,7 @@ if(!$product){
                        <span class="input-group-addon">
                          <i class="glyphicon glyphicon-usd"></i>
                        </span>
-                       <input type="number" class="form-control" name="sale-price" value="<?php echo remove_junk($product['sale_price']);?>">
-                       <span class="input-group-addon">.00</span>
+                       <input type="text" class="form-control" name="sale-price" value="<?php echo remove_junk($product['sale_price']);?>">
                     </div>
                    </div>
                   </div>
