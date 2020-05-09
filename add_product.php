@@ -181,8 +181,7 @@
                      <span class="input-group-addon">
                        <i class="glyphicon glyphicon-usd"></i>
                      </span>
-                     <input type="number" class="form-control" name="cost-price" placeholder="Cost Price">
-                     <span class="input-group-addon">.00</span>
+                     <input type="text" class="form-control" name="cost-price" placeholder="Cost Price">
                   </div>
                  </div>
 
@@ -191,8 +190,7 @@
                       <span class="input-group-addon">
                         <i class="glyphicon glyphicon-usd"></i>
                       </span>
-                      <input type="number" class="form-control" name="sale-price" placeholder="Selling Price">
-                      <span class="input-group-addon">.00</span>
+                      <input type="text" class="form-control" name="sale-price" placeholder="Selling Price">
                    </div>
                   </div>
 <!--     *************************     -->
@@ -211,10 +209,9 @@
         </div>
       </div>
 <?php
-$product = last_id("products");
-$product_id = $product['id'];
-echo "product_id: " . $product_id;
-
+//$product = last_id("products");
+//$product_id = $product['id'];
+//echo "product_id: " . $product_id;
 ?>
 
     </div>
