@@ -1,78 +1,82 @@
 <?php
-  $page_title = 'Add Product';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-  page_require_level(2);
+/**
+ * add_product.php
+ *
+ * @package default
+ */
 
-  $all_categories = find_all('categories');
-  $all_photo = find_all('media');
+
+$page_title = 'Add Product';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(2);
+
+$all_categories = find_all('categories');
+$all_photo = find_all('media');
 
 ?>
 
 
 <?php
- if(isset($_POST['add_product'])){
-   $req_fields = array('product-title','product-category','product-quantity','cost-price', 'sale-price' );
-   validate_fields($req_fields);
-   if(empty($errors)){
-     $p_name  = remove_junk($db->escape($_POST['product-title']));
-     $p_desc  = remove_junk($db->escape($_POST['product-desc']));
-     $p_loc  = remove_junk($db->escape($_POST['product-location']));
-     $p_cat   = remove_junk($db->escape($_POST['product-category']));
-     $p_qty   = remove_junk($db->escape($_POST['product-quantity']));
-     $p_buy   = remove_junk($db->escape($_POST['cost-price']));
-     $p_sale  = remove_junk($db->escape($_POST['sale-price']));
-     if (is_null($_POST['product-photo']) || $_POST['product-photo'] === "") {
-       $media_id = '0';
-     } else {
-       $media_id = remove_junk($db->escape($_POST['product-photo']));
-     }
-     $date    = make_date();
-     $query  = "INSERT INTO products (";
-     $query .=" name,description,location,quantity,buy_price,sale_price,category_id,media_id,date";
-     $query .=") VALUES (";
-     $query .=" '{$p_name}', '{$p_desc}', '{$p_loc}', '{$p_qty}', '{$p_buy}', '{$p_sale}', '{$p_cat}', '{$media_id}', '{$date}'";
-     $query .=")";
-     $query .=" ON DUPLICATE KEY UPDATE name='{$p_name}'";
-     if($db->query($query))
-     {
+if (isset($_POST['add_product'])) {
+	$req_fields = array('product-title', 'product-category', 'product-quantity', 'cost-price', 'sale-price' );
+	validate_fields($req_fields);
+	if (empty($errors)) {
+		$p_name  = remove_junk($db->escape($_POST['product-title']));
+		$p_desc  = remove_junk($db->escape($_POST['product-desc']));
+		$p_loc  = remove_junk($db->escape($_POST['product-location']));
+		$p_cat   = remove_junk($db->escape($_POST['product-category']));
+		$p_qty   = remove_junk($db->escape($_POST['product-quantity']));
+		$p_buy   = remove_junk($db->escape($_POST['cost-price']));
+		$p_sale  = remove_junk($db->escape($_POST['sale-price']));
+		if (is_null($_POST['product-photo']) || $_POST['product-photo'] === "") {
+			$media_id = '0';
+		} else {
+			$media_id = remove_junk($db->escape($_POST['product-photo']));
+		}
+		$date    = make_date();
+		$query  = "INSERT INTO products (";
+		$query .=" name,description,location,quantity,buy_price,sale_price,category_id,media_id,date";
+		$query .=") VALUES (";
+		$query .=" '{$p_name}', '{$p_desc}', '{$p_loc}', '{$p_qty}', '{$p_buy}', '{$p_sale}', '{$p_cat}', '{$media_id}', '{$date}'";
+		$query .=")";
+		$query .=" ON DUPLICATE KEY UPDATE name='{$p_name}'";
+		if ($db->query($query)) {
 
-   $product = last_id("products");
-   $product_id = $product['id'];
-	if ( $product_id == 0 )
-	{
-       $session->msg('d',' Sorry failed to added!');
-       redirect('add_product.php', false);
-   }
+			$product = last_id("products");
+			$product_id = $product['id'];
+			if ( $product_id == 0 ) {
+				$session->msg('d', ' Sorry failed to added!');
+				redirect('add_product.php', false);
+			}
 
-	$quantity = $p_qty;
-       $cost = $p_buy;
-  $comments = "initial stock";
+			$quantity = $p_qty;
+			$cost = $p_buy;
+			$comments = "initial stock";
 
-      $sql  = "INSERT INTO stock (product_id,quantity,comments,date)";
-      $sql .= " VALUES ('{$product_id}','{$quantity}','{$comments}','{$date}')";
-          $result = $db->query($sql);
-          if( $result && $db->affected_rows() === 1)
-          {
-       $session->msg('s',"Product added ");
-       redirect('products.php', false);
-   }
-     } else {
-       $session->msg('d',' Sorry failed to added!');
-       redirect('add_product.php', false);
-     }
+			$sql  = "INSERT INTO stock (product_id,quantity,comments,date)";
+			$sql .= " VALUES ('{$product_id}','{$quantity}','{$comments}','{$date}')";
+			$result = $db->query($sql);
+			if ( $result && $db->affected_rows() === 1) {
+				$session->msg('s', "Product added ");
+				redirect('products.php', false);
+			}
+		} else {
+			$session->msg('d', ' Sorry failed to added!');
+			redirect('add_product.php', false);
+		}
 
-   } else{
-     $session->msg("d", $errors);
-     redirect('add_product.php',false);
-   }
+	} else {
+		$session->msg("d", $errors);
+		redirect('add_product.php', false);
+	}
 
- }
+}
 
 ?>
 
 
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
 <div class="row">
   <div class="col-md-12">
     <?php echo display_msg($msg); ?>
@@ -217,4 +221,4 @@
     </div>
   </div>
 
-<?php include_once('layouts/footer.php'); ?>
+<?php include_once 'layouts/footer.php'; ?>

@@ -1,22 +1,28 @@
 <?php
-  $page_title = 'All Product';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-   page_require_level(2);
+/**
+ * products.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'All Product';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(2);
 
 $all_categories = find_all('categories');
-if ( isset($_POST['update_category'] ) )
-{
-  $products = find_products_by_category((int)$_POST['product-category']);
+if ( isset($_POST['update_category'] ) ) {
+	$products = find_products_by_category((int)$_POST['product-category']);
 } else {
-  $products = join_product_table();
+	$products = join_product_table();
 }
 
 ?>
 
 <!--     *************************     -->
 
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
 <div class="row">
   <div class="col-md-6">
     <?php echo display_msg($msg); ?>
@@ -45,7 +51,7 @@ if ( isset($_POST['update_category'] ) )
 </div>
 
 
-</div>    
+</div>
   <div class="row">
     <div class="col-md-12">
       <div class="panel panel-default">
@@ -55,11 +61,10 @@ if ( isset($_POST['update_category'] ) )
          <strong>
           <span class="glyphicon glyphicon-th"></span>
 <?php
-if ( isset($_POST['update_category'] ) )
-{
-          echo "<span>Products by Category</span>";
+if ( isset($_POST['update_category'] ) ) {
+	echo "<span>Products by Category</span>";
 } else {
-          echo "<span>All Products</span>";
+	echo "<span>All Products</span>";
 }
 ?>
        </strong>
@@ -95,7 +100,7 @@ if ( isset($_POST['update_category'] ) )
                 <td><a href="view_product.php?id=<?php echo (int)$product['id'];?>"><?php echo remove_junk($product['name']); ?></a></td>
 
                 <td>
-                  <?php if($product['media_id'] === '0'): ?>
+                  <?php if ($product['media_id'] === '0'): ?>
                     <img class="img-avatar img-circle" src="uploads/products/no_image.jpg" alt="">
                   <?php else: ?>
                   <img class="img-avatar img-circle" src="uploads/products/<?php echo $product['image']; ?>" alt="">
@@ -129,18 +134,18 @@ if ( isset($_POST['update_category'] ) )
         </div>
       </div>
 <?php
-//	print "<pre>";
-//	print_r($products);
-//	print "</pre>\n";
+// print "<pre>";
+// print_r($products);
+// print "</pre>\n";
 ?>
 
 <?php
-//	print "<pre>";
-//	print_r($_POST);
-//	print "</pre>\n";
+// print "<pre>";
+// print_r($_POST);
+// print "</pre>\n";
 ?>
 
 
     </div>
   </div>
-  <?php include_once('layouts/footer.php'); ?>
+  <?php include_once 'layouts/footer.php'; ?>

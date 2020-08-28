@@ -1,46 +1,53 @@
 <?php
-  $page_title = 'Edit category';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-  page_require_level(2);
+/**
+ * edit_order.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'Edit category';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(2);
 ?>
 <?php
-  //Display all catgories.
-  $order = find_by_id('orders',(int)$_GET['id']);
-  if(!$order){
-    $session->msg("d","Missing order id.");
-    redirect('orders.php');
-  }
-?>
-
-<?php
-if(isset($_POST['edit_order'])){
-  $customer = remove_junk($db->escape($_POST['customer']));
-  $paymethod = remove_junk($db->escape($_POST['paymethod']));
-  $notes = remove_junk($db->escape($_POST['notes']));
-  $date = remove_junk($db->escape($_POST['date']));
-	if ($date == 0 ) { $date    = make_date(); }
-
-  if(empty($errors)){
-        $sql = "UPDATE orders SET";
-        $sql .= " customer='{$customer}', paymethod='{$paymethod}', notes='{$notes}', date='{$date}'";
-        $sql .= " WHERE id='{$order['id']}'";
-
-     $result = $db->query($sql);
-     if($result && $db->affected_rows() === 1) {
-       $session->msg("s", "Successfully updated order");
-       redirect('orders.php',false);
-     } else {
-       $session->msg("d", "Sorry! Failed to Order");
-       redirect('orders.php',false);
-     }
-  } else {
-    $session->msg("d", $errors);
-    redirect('orders.php',false);
-  }
+//Display all catgories.
+$order = find_by_id('orders', (int)$_GET['id']);
+if (!$order) {
+	$session->msg("d", "Missing order id.");
+	redirect('orders.php');
 }
 ?>
-<?php include_once('layouts/header.php'); ?>
+
+<?php
+if (isset($_POST['edit_order'])) {
+	$customer = remove_junk($db->escape($_POST['customer']));
+	$paymethod = remove_junk($db->escape($_POST['paymethod']));
+	$notes = remove_junk($db->escape($_POST['notes']));
+	$date = remove_junk($db->escape($_POST['date']));
+	if ($date == 0 ) { $date    = make_date(); }
+
+	if (empty($errors)) {
+		$sql = "UPDATE orders SET";
+		$sql .= " customer='{$customer}', paymethod='{$paymethod}', notes='{$notes}', date='{$date}'";
+		$sql .= " WHERE id='{$order['id']}'";
+
+		$result = $db->query($sql);
+		if ($result && $db->affected_rows() === 1) {
+			$session->msg("s", "Successfully updated order");
+			redirect('orders.php', false);
+		} else {
+			$session->msg("d", "Sorry! Failed to Order");
+			redirect('orders.php', false);
+		}
+	} else {
+		$session->msg("d", $errors);
+		redirect('orders.php', false);
+	}
+}
+?>
+<?php include_once 'layouts/header.php'; ?>
 
 <div class="row">
    <div class="col-md-12">
@@ -63,10 +70,10 @@ if(isset($_POST['edit_order'])){
            <div class="form-group">
                     <select class="form-control" name="paymethod">
                       <option value="">Select Payment Method</option>
-                     <option value="Cash" <?php if($order['paymethod'] === "Cash" ): echo "selected"; endif; ?> >Cash</option>
-                     <option value="Check" <?php if($order['paymethod'] === "Check" ): echo "selected"; endif; ?> >Check</option>
-                     <option value="Credit" <?php if($order['paymethod'] === "Credit" ): echo "selected"; endif; ?> >Credit</option>
-                     <option value="Charge" <?php if($order['paymethod'] === "Charge" ): echo "selected"; endif; ?> >Charge to Account</option>
+                     <option value="Cash" <?php if ($order['paymethod'] === "Cash" ): echo "selected"; endif; ?> >Cash</option>
+                     <option value="Check" <?php if ($order['paymethod'] === "Check" ): echo "selected"; endif; ?> >Check</option>
+                     <option value="Credit" <?php if ($order['paymethod'] === "Credit" ): echo "selected"; endif; ?> >Credit</option>
+                     <option value="Charge" <?php if ($order['paymethod'] === "Charge" ): echo "selected"; endif; ?> >Charge to Account</option>
                     </select>
 
            </div>
@@ -86,12 +93,12 @@ if(isset($_POST['edit_order'])){
 
 
 <?php
-//	print "<pre>";
-//	print_r($order);
-//	print "</pre>\n";
+// print "<pre>";
+// print_r($order);
+// print "</pre>\n";
 ?>
 
    </div>
 </div>
 
-<?php include_once('layouts/footer.php'); ?>
+<?php include_once 'layouts/footer.php'; ?>

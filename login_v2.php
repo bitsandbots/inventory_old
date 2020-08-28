@@ -1,7 +1,14 @@
 <?php
-  ob_start();
-  require_once('includes/load.php');
-  if($session->isUserLoggedIn(true)) { redirect('home.php', false);}
+/**
+ * login_v2.php
+ *
+ * @package default
+ */
+
+
+ob_start();
+require_once 'includes/load.php';
+if ($session->isUserLoggedIn(true)) { redirect('home.php', false);}
 ?>
 
 <div class="login-page">
@@ -24,4 +31,4 @@
         </div>
     </form>
 </div>
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>

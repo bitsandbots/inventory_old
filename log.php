@@ -1,39 +1,46 @@
 <?php
-  $page_title = 'All logs';
-  require_once('./includes/load.php');
-  // Checkin What level user has permission to view this page
-   page_require_level(2);
+/**
+ * log.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'All logs';
+require_once './includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(2);
 
 /**
-* CoreConduit Copyright (C) 2016 Cory J. Potter - All Rights Reserved
-* NOT INTENDED FOR COMMERCIAL USE!
-* <coreconduitconsulting@gmail.com>
-*
-**************************************************************************
-*
-* CORECONDUIT CONFIDENTIAL
-* __________________
-*
-*  [2014] - [2018] CoreConduit A.K.A. Cory J. Potter - All Rights Reserved.
-*
-* NOTICE:  All information contained herein is, and remains the property of
-*          CoreConduit and its suppliers, if any.  The intellectual and
-*          technical concepts contained herein are proprietary to CoreConduit
-*          and its suppliers and may be covered by U.S. and Foreign Patents,
-*          patents in process, and are protected by trade secret or copyright law.
-*          Dissemination of this information or reproduction of this material is
-*          strictly forbidden unless prior written permission is obtained from
-*          CoreConduit.
-*          Unless required by applicable law or agreed to in writing, software
-*          distributed is distributed on an "AS IS" BASIS,
-*          WITHOUT WARRANTIES OF ANY KIND, either express or implied.
-*************************************************************************/
-
+ * CoreConduit Copyright (C) 2016 Cory J. Potter - All Rights Reserved
+ * NOT INTENDED FOR COMMERCIAL USE!
+ * <coreconduitconsulting@gmail.com>
+ *
+ * *************************************************************************
+ *
+ * CORECONDUIT CONFIDENTIAL
+ * __________________
+ *
+ *  [2014] - [2018] CoreConduit A.K.A. Cory J. Potter - All Rights Reserved.
+ *
+ * NOTICE:  All information contained herein is, and remains the property of
+ *          CoreConduit and its suppliers, if any.  The intellectual and
+ *          technical concepts contained herein are proprietary to CoreConduit
+ *          and its suppliers and may be covered by U.S. and Foreign Patents,
+ *          patents in process, and are protected by trade secret or copyright law.
+ *          Dissemination of this information or reproduction of this material is
+ *          strictly forbidden unless prior written permission is obtained from
+ *          CoreConduit.
+ *          Unless required by applicable law or agreed to in writing, software
+ *          distributed is distributed on an "AS IS" BASIS,
+ *          WITHOUT WARRANTIES OF ANY KIND, either express or implied.
+ * ***********************************************************************
+ */
 $logs = find_all('log');
 
 /******************************************************************************/
 ?>
-<?php include_once('./layouts/header.php'); ?>
+<?php include_once './layouts/header.php'; ?>
 
 <div class="row">
   <div class="col-md-6">
@@ -51,7 +58,7 @@ $logs = find_all('log');
             <span class="glyphicon glyphicon-th"></span>
             <span>Logged Actions</span>
           </strong>
-   
+
         </div>
 
         <div class="panel-body">
@@ -72,8 +79,7 @@ $logs = find_all('log');
 
 
 <?php
-foreach ($logs as $log )
-{
+foreach ($logs as $log ) {
 ?>
 <tr>
 <td class="text-center">
@@ -91,8 +97,8 @@ foreach ($logs as $log )
 </td>
 
 <?php
-//$category = find_by_id("categories",$setting['category_id']);
-//echo $category['name'];
+	//$category = find_by_id("categories",$setting['category_id']);
+	//echo $category['name'];
 ?>
 
 
@@ -121,4 +127,4 @@ foreach ($logs as $log )
 
     </div>
   </div>
-<?php include_once('./layouts/footer.php'); ?>
+<?php include_once './layouts/footer.php'; ?>

@@ -1,17 +1,23 @@
 <?php
-  $page_title = 'All sales by Order';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-   page_require_level(3);
+/**
+ * sales_by_order.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'All sales by Order';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(3);
 ?>
 
 <?php
-  if(isset($_GET['id']))
-  {
+if (isset($_GET['id'])) {
 	$order_id = (int) $_GET['id'];
-  } else {
-  $session->msg("d","Missing order id.");
-  }
+} else {
+	$session->msg("d", "Missing order id.");
+}
 
 $sales = find_sales_by_order_id( $order_id );
 $order = find_by_id("orders", $order_id);
@@ -19,7 +25,7 @@ $order = find_by_id("orders", $order_id);
 
 
 
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
   <div class="row">
      <div class="col-md-12">
        <?php echo display_msg($msg); ?>
@@ -54,9 +60,9 @@ $order = find_by_id("orders", $order_id);
                     <td class="text-center">
 					<a href="add_sale_to_order.php?id=<?php echo (int)$order['id'];?>">
 					<?php echo $order['id'];?>
-					</a>	
+					</a>
 					</td>
-                    
+
                     <td class="text-center">
 						<?php echo remove_junk(ucfirst($order['customer']));?>
 					</td>
@@ -149,19 +155,18 @@ $order = find_by_id("orders", $order_id);
                <td class="text-center"></td>
                <td class="text-center"></td>
                <td class="text-center"></td>
-			<?php 
-			$order_total = 0;
-			foreach ($sales as $sale)
-			{
-				$order_total = $order_total + $sale['price'];
-			}
-			?>
-               <td class="text-center">$<?php echo number_format($order_total,2); ?></td>
+			<?php
+$order_total = 0;
+foreach ($sales as $sale) {
+	$order_total = $order_total + $sale['price'];
+}
+?>
+               <td class="text-center">$<?php echo number_format($order_total, 2); ?></td>
                <td class="text-center"></td>
                <td class="text-center"></td>
 
 
-			</tr>	
+			</tr>
 
 
            </tbody>
@@ -170,19 +175,19 @@ $order = find_by_id("orders", $order_id);
         </div>
       </div>
 <?php
-//	print "<pre>";
-//	print_r($sales);
-//	print "</pre>\n";
+// print "<pre>";
+// print_r($sales);
+// print "</pre>\n";
 ?>
 
 
 <?php
-//	print "<pre>";
-//	print_r($order);
-//	print "</pre>\n";
+// print "<pre>";
+// print_r($order);
+// print "</pre>\n";
 ?>
 
 
     </div>
   </div>
-<?php include_once('layouts/footer.php'); ?>
+<?php include_once 'layouts/footer.php'; ?>

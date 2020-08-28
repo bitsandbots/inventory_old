@@ -1,28 +1,35 @@
 <?php
+/**
+ * sale_report_process.php
+ *
+ * @package default
+ */
+
+
 $page_title = 'Sales Report';
 $results = '';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-   page_require_level(3);
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(3);
 ?>
 <?php
-  if(isset($_POST['submit'])){
-    $req_dates = array('start-date','end-date');
-    validate_fields($req_dates);
+if (isset($_POST['submit'])) {
+	$req_dates = array('start-date', 'end-date');
+	validate_fields($req_dates);
 
-    if(empty($errors)):
-      $start_date   = remove_junk($db->escape($_POST['start-date']));
-      $end_date     = remove_junk($db->escape($_POST['end-date']));
-      $results      = find_sale_by_dates($start_date,$end_date);
-    else:
-      $session->msg("d", $errors);
-      redirect('sales_report.php', false);
-    endif;
+	if (empty($errors)):
+		$start_date   = remove_junk($db->escape($_POST['start-date']));
+	$end_date     = remove_junk($db->escape($_POST['end-date']));
+	$results      = find_sale_by_dates($start_date, $end_date);
+	else:
+		$session->msg("d", $errors);
+	redirect('sales_report.php', false);
+	endif;
 
-  } else {
-    $session->msg("d", "Select dates");
-    redirect('sales_report.php', false);
-  }
+} else {
+	$session->msg("d", "Select dates");
+	redirect('sales_report.php', false);
+}
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -76,11 +83,11 @@ $results = '';
    </style>
 </head>
 <body>
-  <?php if($results): ?>
+  <?php if ($results): ?>
     <div class="page-break">
        <div class="sale-head pull-right">
            <h1>Sales Report</h1>
-           <strong><?php if(isset($start_date)){ echo $start_date;}?> To <?php if(isset($end_date)){echo $end_date;}?> </strong>
+           <strong><?php if (isset($start_date)) { echo $start_date;}?> To <?php if (isset($end_date)) {echo $end_date;}?> </strong>
        </div>
       <table class="table table-border">
         <thead>
@@ -94,7 +101,7 @@ $results = '';
           </tr>
         </thead>
         <tbody>
-          <?php foreach($results as $result): ?>
+          <?php foreach ($results as $result): ?>
            <tr>
               <td class=""><?php echo remove_junk($result['date']);?></td>
               <td class="desc">
@@ -124,11 +131,11 @@ $results = '';
       </table>
     </div>
   <?php
-    else:
-        $session->msg("d", "Sorry no sales has been found. ");
-        redirect('sales_report.php', false);
-     endif;
-  ?>
+else:
+	$session->msg("d", "Sorry no sales has been found. ");
+redirect('sales_report.php', false);
+endif;
+?>
 </body>
 </html>
-<?php if(isset($db)) { $db->db_disconnect(); } ?>
+<?php if (isset($db)) { $db->db_disconnect(); } ?>

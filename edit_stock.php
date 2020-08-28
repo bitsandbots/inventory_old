@@ -1,83 +1,83 @@
 <?php
-  $page_title = 'Edit category';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-  page_require_level(1);
+/**
+ * edit_stock.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'Edit category';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(1);
 ?>
 <?php
-  //Display all catgories.
-  $stock = find_by_id('stock',(int)$_GET['id']);
-  $product = find_by_id('products',(int)$stock['product_id']);
+//Display all catgories.
+$stock = find_by_id('stock', (int)$_GET['id']);
+$product = find_by_id('products', (int)$stock['product_id']);
 
-  if(!$stock){
-    $session->msg("d","Missing order id.");
-    redirect('stock.php');
-  }
+if (!$stock) {
+	$session->msg("d", "Missing order id.");
+	redirect('stock.php');
+}
 ?>
 
 <?php
-if(isset($_POST['edit_stock'])){
-  $req_field = array('product_id','quantity');
-  validate_fields($req_field);
-  $product_id = remove_junk($db->escape($_POST['product_id']));
-  $quantity = remove_junk($db->escape($_POST['quantity']));
+if (isset($_POST['edit_stock'])) {
+	$req_field = array('product_id', 'quantity');
+	validate_fields($req_field);
+	$product_id = remove_junk($db->escape($_POST['product_id']));
+	$quantity = remove_junk($db->escape($_POST['quantity']));
 
 	// check if the quantity has changed
 	$s_qty_diff = 0;
-	if ( $quantity != $stock['quantity'] )
-	{
+	if ( $quantity != $stock['quantity'] ) {
 		// there has been an increase in quantity
-		if ( $quantity > $stock['quantity'] )
-		{
-		// difference between previous quantity and new value
-		$s_qty_diff = $quantity - $stock['quantity'];
-		$decrease_quantity_flag = false;
+		if ( $quantity > $stock['quantity'] ) {
+			// difference between previous quantity and new value
+			$s_qty_diff = $quantity - $stock['quantity'];
+			$decrease_quantity_flag = false;
 		}
 		// there has been a decrease in quantity
-		else if ( $quantity < $stock['quantity'] )
-		{
-		// difference between previous quantity and new value
-		$s_qty_diff = $stock['quantity'] - $quantity;
-		$decrease_quantity_flag = true;
+		else if ( $quantity < $stock['quantity'] ) {
+			// difference between previous quantity and new value
+			$s_qty_diff = $stock['quantity'] - $quantity;
+			$decrease_quantity_flag = true;
 		}
 	}
 
-  $comments = remove_junk($db->escape($_POST['comments']));
-  $date = remove_junk($db->escape($_POST['date']));
-  $current_date    = make_date();
+	$comments = remove_junk($db->escape($_POST['comments']));
+	$date = remove_junk($db->escape($_POST['date']));
+	$current_date    = make_date();
 
-  if(empty($errors))
-  {
-        $sql = "UPDATE stock SET";
-        $sql .= " product_id='{$product_id}', quantity='{$quantity}', comments='{$comments}', date='{$current_date}'";
-        $sql .= " WHERE id='{$stock['id']}'";
+	if (empty($errors)) {
+		$sql = "UPDATE stock SET";
+		$sql .= " product_id='{$product_id}', quantity='{$quantity}', comments='{$comments}', date='{$current_date}'";
+		$sql .= " WHERE id='{$stock['id']}'";
 
-     $result = $db->query($sql);
-     if($result && $db->affected_rows() === 1)
-     {
-					if ( $s_qty_diff > 0 )
-					{
-						if ( $decrease_quantity_flag )
-						{
-						decrease_product_qty($s_qty_diff,$product_id);
-						} else {
-						increase_product_qty($s_qty_diff,$product_id);
-						}
-					}
-	   $session->msg("s", "Successfully updated");
-       redirect('stock.php',false);
-     } else {
-       $session->msg("d", "Sorry! Failed");
-       redirect('edit_stock.php',false);
-     }
-     
-  } else {
-    $session->msg("d", $errors);
-    redirect('edit_stock.php',false);
-  }
+		$result = $db->query($sql);
+		if ($result && $db->affected_rows() === 1) {
+			if ( $s_qty_diff > 0 ) {
+				if ( $decrease_quantity_flag ) {
+					decrease_product_qty($s_qty_diff, $product_id);
+				} else {
+					increase_product_qty($s_qty_diff, $product_id);
+				}
+			}
+			$session->msg("s", "Successfully updated");
+			redirect('stock.php', false);
+		} else {
+			$session->msg("d", "Sorry! Failed");
+			redirect('edit_stock.php', false);
+		}
+
+	} else {
+		$session->msg("d", $errors);
+		redirect('edit_stock.php', false);
+	}
 }
 ?>
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
 
 <div class="row">
    <div class="col-md-12">
@@ -95,7 +95,7 @@ if(isset($_POST['edit_stock'])){
          <form method="post" action="">
 
            <div class="form-group">
-              <label for="name" class="control-label"><?php echo $product['name'];?></label>					
+              <label for="name" class="control-label"><?php echo $product['name'];?></label>
 			 <input type="hidden" class="form-control" name="product_id" value="<?php echo $stock['product_id'] ;?>">
            </div>
 
@@ -119,12 +119,12 @@ if(isset($_POST['edit_stock'])){
 
 
       <?php
-	print "<pre>";
-	print_r($stock);
-	print "</pre>\n";
+print "<pre>";
+print_r($stock);
+print "</pre>\n";
 ?>
 
    </div>
 </div>
 
-<?php include_once('layouts/footer.php'); ?>
+<?php include_once 'layouts/footer.php'; ?>

@@ -1,18 +1,25 @@
 <?php
-  $page_title = 'All stock';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-  page_require_level(1);
-  
-  $all_stock = find_all('stock');
-  $all_products = find_all('products');
+/**
+ * stock.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'All stock';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(1);
+
+$all_stock = find_all('stock');
+$all_products = find_all('products');
 
 ?>
 
 <!--     *************************     -->
 
 
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
   <div class="row">
      <div class="col-md-12">
        <?php echo display_msg($msg); ?>
@@ -52,15 +59,14 @@
 					<a href="view_product.php?id=<?php echo (int)$stock['product_id'];?>">
 					<?php
 
-					foreach ( $all_products as $product )
-					{
-					if ( $stock['product_id'] == $product['id'] ) { echo $product['name']; }
-					}
-										  
-					?>
-					</a>	
+foreach ( $all_products as $product ) {
+	if ( $stock['product_id'] == $product['id'] ) { echo $product['name']; }
+}
+
+?>
+					</a>
 					</td>
-                    
+
                     <td class="text-center">
 						<?php echo remove_junk(ucfirst($stock['quantity']));?>
 					</td>
@@ -95,14 +101,15 @@
 
 <?php
 /**
-	print "<pre>";
-	print_r($all_stock);
-	print "</pre>\n";
-**/
+ * print "<pre>";
+ * print_r($all_stock);
+ * print "</pre>\n";
+ *
+ */
 ?>
 
 
     </div>
    </div>
   </div>
-  <?php include_once('layouts/footer.php'); ?>
+  <?php include_once 'layouts/footer.php'; ?>

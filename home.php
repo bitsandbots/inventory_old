@@ -1,17 +1,24 @@
 <?php
-  $page_title = 'Home Page';
-  require_once('includes/load.php');
-  if (!$session->isUserLoggedIn(true)) { redirect('index.php', false);}
+/**
+ * home.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'Home Page';
+require_once 'includes/load.php';
+if (!$session->isUserLoggedIn(true)) { redirect('index.php', false);}
 
 // $c_categorie     = count_by_id('categories');
 // $c_product       = count_by_id('products');
 // $c_sale          = count_by_id('sales');
 // $c_user          = count_by_id('users');
- $products_sold   = find_higest_saleing_product('10');
- $recent_products = find_recent_product_added('5');
- $recent_sales    = find_recent_sale_added('5')
+$products_sold   = find_higest_saleing_product('10');
+$recent_products = find_recent_product_added('5');
+$recent_sales    = find_recent_sale_added('5')
 ?>
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
 
 <!--     *************************     -->
 <div class="row">
@@ -146,7 +153,7 @@ function closePanel()
       <?php foreach ($recent_products as  $recent_product): ?>
             <a class="list-group-item clearfix" href="view_product.php?id=<?php echo    (int)$recent_product['id'];?>">
                 <h4 class="list-group-item-heading">
-                 <?php if($recent_product['media_id'] === '0'): ?>
+                 <?php if ($recent_product['media_id'] === '0'): ?>
                     <img class="img-avatar img-circle" src="uploads/products/no_image.jpg" alt="">
                   <?php else: ?>
                   <img class="img-avatar img-circle" src="uploads/products/<?php echo $recent_product['image'];?>" alt="" />
@@ -183,4 +190,4 @@ function closePanel()
 
  </div>
 </div>
-<?php include_once('layouts/footer.php'); ?>
+<?php include_once 'layouts/footer.php'; ?>

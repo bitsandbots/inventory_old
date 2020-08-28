@@ -1,26 +1,33 @@
 <?php
-  $page_title = 'All Image';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-  page_require_level(2);
+/**
+ * media.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'All Image';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(2);
 ?>
 <?php $media_files = find_all('media');?>
 <?php
-  if(isset($_POST['submit'])) {
-  $photo = new Media();
-  $photo->upload($_FILES['file_upload']);
-    if($photo->process_media()){
-        $session->msg('s','photo has been uploaded.');
-        redirect('media.php');
-    } else{
-      $session->msg('d',join($photo->errors));
-      redirect('media.php');
-    }
+if (isset($_POST['submit'])) {
+	$photo = new Media();
+	$photo->upload($_FILES['file_upload']);
+	if ($photo->process_media()) {
+		$session->msg('s', 'photo has been uploaded.');
+		redirect('media.php');
+	} else {
+		$session->msg('d', join($photo->errors));
+		redirect('media.php');
+	}
 
-  }
+}
 
 ?>
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
      <div class="row">
         <div class="col-md-6">
           <?php echo display_msg($msg); ?>
@@ -83,4 +90,4 @@
 </div>
 
 
-<?php include_once('layouts/footer.php'); ?>
+<?php include_once 'layouts/footer.php'; ?>

@@ -1,19 +1,28 @@
+<?php
+/**
+ * users.php
+ *
+ * @package default
+ */
+
+
+?>
 
 <?php
-  $page_title = 'All User';
-  require_once('includes/load.php');
+$page_title = 'All User';
+require_once 'includes/load.php';
 ?>
 
 <?php
 // Checkin What level user has permission to view this page
- page_require_level(1);
+page_require_level(1);
 //pull out all user form database
 
- $all_users = find_all_user();
+$all_users = find_all_user();
 
 ?>
 
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
 
 <div class="row">
    <div class="col-md-12">
@@ -51,7 +60,7 @@
         <tbody>
 
 <!--     *************************     -->
-        <?php foreach($all_users as $a_user): ?>
+        <?php foreach ($all_users as $a_user): ?>
 
           <tr>
            <td class="text-center"><?php echo count_id();?></td>
@@ -60,7 +69,7 @@
            <td class="text-center"><?php echo remove_junk(ucwords($a_user['group_name']))?></td>
 <!--     *************************     -->
            <td class="text-center">
-           <?php if($a_user['status'] === '1'): ?>
+           <?php if ($a_user['status'] === '1'): ?>
             <span class="label label-success"><?php echo "Active"; ?></span>
           <?php else: ?>
             <span class="label label-danger"><?php echo "Deactive"; ?></span>
@@ -91,4 +100,4 @@
     </div>
   </div>
 </div>
-  <?php include_once('layouts/footer.php'); ?>
+  <?php include_once 'layouts/footer.php'; ?>

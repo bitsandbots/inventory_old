@@ -1,40 +1,47 @@
 <?php
-  $page_title = 'All categories';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-  page_require_level(1);
-  
-  $all_categories = find_all('categories')
+/**
+ * categories.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'All categories';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(1);
+
+$all_categories = find_all('categories')
 ?>
 
 <!--     *************************     -->
 
 <?php
- if(isset($_POST['add_cat'])){
-   $req_field = array('category-name');
-   validate_fields($req_field);
-   $cat_name = remove_junk($db->escape($_POST['category-name']));
-   if(empty($errors)){
-      $sql  = "INSERT INTO categories (name)";
-      $sql .= " VALUES ('{$cat_name}')";
-      if($db->query($sql)){
-        $session->msg("s", "Successfully Added category");
-        redirect('categories.php',false);
-      } else {
-        $session->msg("d", "Sorry Failed to insert.");
-        redirect('categories.php',false);
-      }
-   } else {
-     $session->msg("d", $errors);
-     redirect('categories.php',false);
-   }
- }
+if (isset($_POST['add_cat'])) {
+	$req_field = array('category-name');
+	validate_fields($req_field);
+	$cat_name = remove_junk($db->escape($_POST['category-name']));
+	if (empty($errors)) {
+		$sql  = "INSERT INTO categories (name)";
+		$sql .= " VALUES ('{$cat_name}')";
+		if ($db->query($sql)) {
+			$session->msg("s", "Successfully Added category");
+			redirect('categories.php', false);
+		} else {
+			$session->msg("d", "Sorry Failed to insert.");
+			redirect('categories.php', false);
+		}
+	} else {
+		$session->msg("d", $errors);
+		redirect('categories.php', false);
+	}
+}
 ?>
 
 <!--     *************************     -->
 
 
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
   <div class="row">
      <div class="col-md-12">
        <?php echo display_msg($msg); ?>
@@ -115,4 +122,4 @@
     </div>
    </div>
   </div>
-  <?php include_once('layouts/footer.php'); ?>
+  <?php include_once 'layouts/footer.php'; ?>

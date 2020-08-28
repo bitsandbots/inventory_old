@@ -1,12 +1,19 @@
 <?php
-  $page_title = 'All sale';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-   page_require_level(3);
+/**
+ * sales.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'All sale';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(3);
 ?>
 
 <?php $sales = find_all_sales(); ?>
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
 
 <div class="row">
   <div class="col-md-6">
@@ -74,13 +81,12 @@
       </div>
 
 <?php
-//	print "<pre>";
-//	print_r($sales);
-//	print "</pre>\n";
+// print "<pre>";
+// print_r($sales);
+// print "</pre>\n";
 
 ?>
 
     </div>
   </div>
-<?php include_once('layouts/footer.php'); ?>
-
+<?php include_once 'layouts/footer.php'; ?>

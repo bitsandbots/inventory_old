@@ -1,18 +1,25 @@
 <?php
-  $page_title = 'All Product';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-   page_require_level(2);
+/**
+ * product_original.php
+ *
+ * @package default
+ */
 
 
-  $products = join_product_table();
+$page_title = 'All Product';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(2);
+
+
+$products = join_product_table();
 
 
 ?>
 
 <!--     *************************     -->
 
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
   <div class="row">
      <div class="col-md-12">
        <?php echo display_msg($msg); ?>
@@ -64,7 +71,7 @@
                 <td> <?php echo remove_junk($product['name']); ?></td>
 
                 <td>
-                  <?php if($product['media_id'] === '0'): ?>
+                  <?php if ($product['media_id'] === '0'): ?>
                     <img class="img-avatar img-circle" src="uploads/products/no_image.jpg" alt="">
                   <?php else: ?>
                   <img class="img-avatar img-circle" src="uploads/products/<?php echo $product['image']; ?>" alt="">
@@ -96,4 +103,4 @@
       </div>
     </div>
   </div>
-  <?php include_once('layouts/footer.php'); ?>
+  <?php include_once 'layouts/footer.php'; ?>

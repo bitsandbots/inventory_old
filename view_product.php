@@ -1,20 +1,26 @@
 <?php
-  $page_title = 'All Product';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-   page_require_level(2);
+/**
+ * view_product.php
+ *
+ * @package default
+ */
 
-$product = find_by_id('products',(int)$_GET['id']);
+
+$page_title = 'All Product';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(2);
+
+$product = find_by_id('products', (int)$_GET['id']);
 $all_categories = find_all('categories');
 $all_photo = find_all('media');
-if( ! $product )
-{
-  $session->msg("d","Missing product id.");
-//  redirect('products.php');
+if ( ! $product ) {
+	$session->msg("d", "Missing product id.");
+	//  redirect('products.php');
 }
 ?>
 
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
 <div class="row">
   <div class="col-md-6">
     <?php echo display_msg($msg); ?>
@@ -50,11 +56,9 @@ if( ! $product )
     </div>
     <div class="col-md-4">
 <?php
-foreach ($all_photo as $photo)
-{
-	if ( $product['media_id'] == $photo['id'] )
-	{
-	?>
+foreach ($all_photo as $photo) {
+	if ( $product['media_id'] == $photo['id'] ) {
+?>
 	<img class="img-thumbnail" src="uploads/products/<?php echo $photo['file_name']; ?>" alt="">
 <?php
 	}
@@ -101,10 +105,8 @@ foreach ($all_photo as $photo)
 
               <tr>
 <?php
-foreach ($all_categories as $category )
-{
-	if ( $product['category_id'] == $category['id'] )
-	{
+foreach ($all_categories as $category ) {
+	if ( $product['category_id'] == $category['id'] ) {
 		break;
 	}
 }
@@ -140,9 +142,9 @@ foreach ($all_categories as $category )
   </div>
 
 <?php
-//	print "<pre>";
-//	print_r($product);
-//	print "</pre>\n";
+// print "<pre>";
+// print_r($product);
+// print "</pre>\n";
 ?>
 
     </div>
@@ -150,4 +152,4 @@ foreach ($all_categories as $category )
     </div>
   </div>
 
-  <?php include_once('layouts/footer.php'); ?>
+  <?php include_once 'layouts/footer.php'; ?>

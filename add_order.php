@@ -1,51 +1,57 @@
 <?php
-  $page_title = 'All orders';
-  require_once('includes/load.php');
-  // Checkin What level user has permission to view this page
-  page_require_level(1);
-  
-  $all_orders = find_all('orders');
-  $order_id = last_id('orders');
-  $new_order_id = $order_id[id] + 1;
+/**
+ * add_order.php
+ *
+ * @package default
+ */
+
+
+$page_title = 'All orders';
+require_once 'includes/load.php';
+// Checkin What level user has permission to view this page
+page_require_level(1);
+
+$all_orders = find_all('orders');
+$order_id = last_id('orders');
+$new_order_id = $order_id[id] + 1;
 
 ?>
 
 <!--     *************************     -->
 
 <?php
- if(isset($_POST['add_order'])){
-   $customer = remove_junk($db->escape($_POST['customer']));
-  $paymethod = remove_junk($db->escape($_POST['paymethod']));
-  $notes = remove_junk($db->escape($_POST['notes']));
-   $current_date    = make_date();
-   if(empty($errors))
-   {
-      $sql  = "INSERT INTO orders (id,customer,paymethod,notes,date)";
-      $sql .= " VALUES ('{$new_order_id}','{$customer}','{$paymethod}','{$notes}','{$current_date}')";
-      if($db->query($sql))
-      {
-        $session->msg("s", "Successfully Added order");
-	 redirect( ( 'add_sale_to_order.php?id=' . $new_order_id ) , false);
-      } else {
-        $session->msg("d", "Sorry Failed to insert.");
-	 redirect( 'add_order.php' , false);
-      }
-   } else {
-     $session->msg("d", $errors);
-	 redirect( 'add_order.php' , false);
-   }
- }
-/**
-	print "<pre>";
-	print_r($all_orders);
-	print "</pre>\n";
-**/
+if (isset($_POST['add_order'])) {
+	$customer = remove_junk($db->escape($_POST['customer']));
+	$paymethod = remove_junk($db->escape($_POST['paymethod']));
+	$notes = remove_junk($db->escape($_POST['notes']));
+	$current_date    = make_date();
+	if (empty($errors)) {
+		$sql  = "INSERT INTO orders (id,customer,paymethod,notes,date)";
+		$sql .= " VALUES ('{$new_order_id}','{$customer}','{$paymethod}','{$notes}','{$current_date}')";
+		if ($db->query($sql)) {
+			$session->msg("s", "Successfully Added order");
+			redirect( ( 'add_sale_to_order.php?id=' . $new_order_id ) , false);
+		} else {
+			$session->msg("d", "Sorry Failed to insert.");
+			redirect( 'add_order.php' , false);
+		}
+	} else {
+		$session->msg("d", $errors);
+		redirect( 'add_order.php' , false);
+	}
+}
 
+/**
+ * print "<pre>";
+ * print_r($all_orders);
+ * print "</pre>\n";
+ *
+ */
 ?>
 
 <!--     *************************     -->
 
-<?php include_once('layouts/header.php'); ?>
+<?php include_once 'layouts/header.php'; ?>
 
 
 <div class="login-page">
@@ -90,4 +96,4 @@
     </form>
 </div>
 
-<?php include_once('layouts/footer.php'); ?>
+<?php include_once 'layouts/footer.php'; ?>
