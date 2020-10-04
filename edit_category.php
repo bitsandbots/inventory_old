@@ -31,10 +31,10 @@ if (isset($_POST['edit_cat'])) {
 		$result = $db->query($sql);
 		if ($result && $db->affected_rows() === 1) {
 			$session->msg("s", "Successfully updated category");
-			redirect('category.php', false);
+			redirect('categories.php', false);
 		} else {
 			$session->msg("d", "Sorry! Failed to Update");
-			redirect('category.php', false);
+			redirect('categories.php', false);
 		}
 	} else {
 		$session->msg("d", $errors);
