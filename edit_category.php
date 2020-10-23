@@ -16,7 +16,7 @@ page_require_level(1);
 $category = find_by_id('categories', (int)$_GET['id']);
 if (!$category) {
 	$session->msg("d", "Missing category id.");
-	redirect('category.php');
+	redirect('categories.php');
 }
 ?>
 
@@ -38,7 +38,7 @@ if (isset($_POST['edit_cat'])) {
 		}
 	} else {
 		$session->msg("d", $errors);
-		redirect('category.php', false);
+		redirect('categories.php', false);
 	}
 }
 ?>
