@@ -118,14 +118,20 @@ if (isset($_POST['submit'])) {
          <tr class="text-right">
            <td colspan="4"></td>
            <td colspan="1">Grand Total</td>
-           <td> $
-           <?php echo number_format(total_price($results)[0], 2);?>
+           <td>
+           <?php 
+           echo formatcurrency( total_price($results)[0], $CURRENCY_CODE);
+            ?>
           </td>
          </tr>
          <tr class="text-right">
            <td colspan="4"></td>
            <td colspan="1">Profit</td>
-           <td> $<?php echo number_format(total_price($results)[1], 2);?></td>
+           <td>
+          <?php 
+           echo formatcurrency( total_price($results)[1], $CURRENCY_CODE);
+           ?>
+          </td>
          </tr>
         </tfoot>
       </table>

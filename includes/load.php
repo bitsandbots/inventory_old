@@ -23,7 +23,7 @@ require_once(LIB_PATH_INC.'sql.php');
 require_once(LIB_PATH_INC.'formatcurrency.php');
 
 $CURRENCY_CODE = 'USD';
-$CURRENCY_CODE = 'USD';
+//$CURRENCY_CODE = 'EUR';
 $user_id = 0;
 if (isset( $_SESSION['user_id'] ))
 {
