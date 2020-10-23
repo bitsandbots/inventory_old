@@ -99,7 +99,7 @@ foreach ( $all_products as $product ) {
            </div>
 
            <div class="form-group">
-               <input type="text" class="form-control" name="comments" value="<?php echo remove_junk(ucfirst($stock['comments']));?>" placeholder="Comments">
+               <input type="text" class="form-control" name="comments" value="" placeholder="Comments">
            </div>
 
 <!--     *************************     -->
