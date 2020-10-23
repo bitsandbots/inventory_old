@@ -124,7 +124,7 @@ function closePanel()
              <?php echo remove_junk(first_character($recent_sale['name'])); ?>
            </td>
            <td><?php echo remove_junk(ucfirst($recent_sale['date'])); ?></td>
-           <td>$<?php echo remove_junk(first_character($recent_sale['price'])); ?></td>
+           <td><?php echo formatcurrency( remove_junk(first_character($recent_sale['price'])), $CURRENCY_CODE); ?></td>
         </tr>
 
        <?php endforeach; ?>

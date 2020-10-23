@@ -161,7 +161,7 @@ foreach ($sales as $sale) {
 	$order_total = $order_total + $sale['price'];
 }
 ?>
-               <td class="text-center">$<?php echo number_format($order_total, 2); ?></td>
+               <td class="text-center"><?php echo formatcurrency ( number_format($order_total, 2), $CURRENCY_CODE); ?></td>
                <td class="text-center"></td>
                <td class="text-center"></td>
 
