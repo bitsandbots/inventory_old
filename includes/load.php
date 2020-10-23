@@ -20,7 +20,13 @@ require_once(LIB_PATH_INC.'session.php');
 require_once(LIB_PATH_INC.'upload.php');
 require_once(LIB_PATH_INC.'database.php');
 require_once(LIB_PATH_INC.'sql.php');
+require_once(LIB_PATH_INC.'formatcurrency.php');
 
 $CURRENCY_CODE = 'USD';
+$CURRENCY_CODE = 'USD';
+$user_id = 0;
+if (isset( $_SESSION['user_id'] ))
+{
 $user_id = $_SESSION['user_id'];
+}
 ?>
