@@ -10,8 +10,7 @@ $page_title = 'Admin Home Page';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(1);
-?>
-<?php
+
 $c_categorie     = count_by_id('categories');
 $c_product       = count_by_id('products');
 $c_sale          = count_by_id('sales');
@@ -22,9 +21,22 @@ $recent_sales    = find_recent_sale_added('5')
 ?>
 <?php include_once 'layouts/header.php'; ?>
 
+
+<script>
+function closePanel()
+{
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none")
+  {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
 <!--     *************************     -->
 <div class="row">
-   <div class="col-md-6">
+   <div class="col-md-12">
      <?php echo display_msg($msg); ?>
    </div>
 </div>
@@ -76,30 +88,17 @@ $recent_sales    = find_recent_sale_added('5')
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-yellow">
 
-          <i class="glyphicon glyphicon-usd"></i>
+          <i class="glyphicon glyphicon-shopping-cart"></i>
 
         </div>
         <div class="panel-value pull-right">
-          <h2 class="margin-top"> <?php  echo $c_sale['total']; ?></h2>
+          <h2 class="margin-top"> <?php  echo $c_sale['total']; ?> </h2>
           <p class="text-muted">Sales</p>
         </div>
        </div>
     </div>
-<!--     *************************     -->
-</div>
 
-<script>
-function closePanel()
-{
-  var x = document.getElementById("myDIV");
-  if (x.style.display === "none")
-  {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
-}
-</script>
+
 
   <div class="row" id="myDIV">
    <div class="col-md-12">
