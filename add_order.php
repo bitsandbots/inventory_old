@@ -84,7 +84,7 @@ if (isset($_POST['add_order'])) {
            </div>
 
            <div class="form-group">
-               <input type="text" class="form-control" name="notes" value="<?php echo remove_junk(ucfirst($order['notes']));?>" placeholder="Notes">
+               <input type="text" class="form-control" name="notes" value="" placeholder="Notes">
            </div>
 
 <!--     *************************     -->
