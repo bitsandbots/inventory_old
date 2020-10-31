@@ -10,17 +10,15 @@ $page_title = 'Edit category';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(2);
-?>
-<?php
+
+
 //Display all catgories.
 $order = find_by_id('orders', (int)$_GET['id']);
 if (!$order) {
 	$session->msg("d", "Missing order id.");
 	redirect('orders.php');
 }
-?>
 
-<?php
 if (isset($_POST['edit_order'])) {
 	$customer = remove_junk($db->escape($_POST['customer']));
 	$paymethod = remove_junk($db->escape($_POST['paymethod']));

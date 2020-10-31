@@ -4,8 +4,6 @@
  *
  * @package default
  */
-
-
 $page_title = 'All orders';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
@@ -13,10 +11,6 @@ page_require_level(1);
 
 $all_orders = find_all('orders')
 ?>
-
-<!--     *************************     -->
-
-
 <?php include_once 'layouts/header.php'; ?>
   <div class="row">
      <div class="col-md-12">
@@ -29,9 +23,11 @@ $all_orders = find_all('orders')
       <div class="panel-heading">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-<!--     *************************     -->
+
+
           <span>All Orders</span>
-<!--     *************************     -->
+
+
        </strong>
           <div class="pull-right">
             <a href="add_order.php" class="btn btn-primary">Add Order</a>
@@ -50,7 +46,8 @@ $all_orders = find_all('orders')
                 </tr>
             </thead>
             <tbody>
-<!--     *************************     -->
+
+
               <?php foreach ($all_orders as $order):?>
                 <tr>
                     <td class="text-center">
@@ -87,7 +84,8 @@ $all_orders = find_all('orders')
 
                 </tr>
               <?php endforeach; ?>
-<!--     *************************     -->
+
+
             </tbody>
           </table>
        </div>

@@ -10,9 +10,8 @@ $page_title = 'All sales by Order';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(3);
-?>
 
-<?php
+$order_id  = 0;
 if (isset($_GET['id'])) {
 	$order_id = (int) $_GET['id'];
 } else {

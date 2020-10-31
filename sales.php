@@ -20,7 +20,6 @@ page_require_level(3);
     <?php echo display_msg($msg); ?>
   </div>
 </div>
-<!--     *************************     -->
 
   <div class="row">
     <div class="col-md-12">
@@ -35,7 +34,8 @@ page_require_level(3);
           </div>
         </div>
         <div class="panel-body">
-<!--     *************************     -->
+
+
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
@@ -48,7 +48,8 @@ page_require_level(3);
                 <th class="text-center" style="width: 100px;"> Actions </th>
              </tr>
             </thead>
-<!--     *************************     -->
+
+
            <tbody>
 
              <?php foreach ($sales as $sale):?>
@@ -76,7 +77,8 @@ page_require_level(3);
 
            </tbody>
          </table>
-<!--     *************************     -->
+
+
         </div>
       </div>
 

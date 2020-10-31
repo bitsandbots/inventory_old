@@ -29,4 +29,23 @@ if (isset( $_SESSION['user_id'] ))
 {
 $user_id = $_SESSION['user_id'];
 }
+if ( isset($_SERVER['HTTP_X_FORWARDED_FOR']) )
+{
+	$remote_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	if ( strpos( $remote_ip, "," ) > 0 )
+	{
+		$remote_ip_for = explode( ",", $remote_ip );
+		$remote_ip = $remote_ip_for[0];
+	}
+} else
+{
+	$remote_ip = $_SERVER['REMOTE_ADDR'];
+}
+$action = $_SERVER['REQUEST_URI'];
+$action = preg_replace('/^.+[\\\\\\/]/', '', $action);
+//$action = preg_replace('/^\/hydroMazing/', '', $action);
+if ( strpos( $action, "home.php" ) == 0 )
+{
+	logAction( $user_id, $remote_ip, $action );
+}
 ?>

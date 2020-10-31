@@ -4,8 +4,6 @@
  *
  * @package default
  */
-
-
 $page_title = 'All orders';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
@@ -13,12 +11,9 @@ page_require_level(1);
 
 $all_orders = find_all('orders');
 $order_id = last_id('orders');
-$new_order_id = $order_id[id] + 1;
+$new_order_id = $order_id['id'] + 1;
 
 ?>
-
-<!--     *************************     -->
-
 <?php
 if (isset($_POST['add_order'])) {
 	$customer = remove_junk($db->escape($_POST['customer']));
@@ -41,30 +36,20 @@ if (isset($_POST['add_order'])) {
 	}
 }
 
-/**
- * print "<pre>";
- * print_r($all_orders);
- * print "</pre>\n";
- *
- */
+include_once 'layouts/header.php';
 ?>
-
-<!--     *************************     -->
-
-<?php include_once 'layouts/header.php'; ?>
 
 
 <div class="login-page">
     <div class="text-center">
-<!--     *************************     -->
        <h2>Add Order</h3>
        <h3>#<?php echo $new_order_id;?></h3>
-<!--     *************************     -->
+
      </div>
      <?php echo display_msg($msg); ?>
 
       <form method="post" action="" class="clearfix">
-<!--     *************************     -->
+
         <div class="form-group">
         </div>
 
@@ -87,7 +72,6 @@ if (isset($_POST['add_order'])) {
                <input type="text" class="form-control" name="notes" value="" placeholder="Notes">
            </div>
 
-<!--     *************************     -->
         <div class="form-group clearfix">
          <div class="pull-right">
                 <button type="submit" name="add_order" class="btn btn-info">Start Order</button>
