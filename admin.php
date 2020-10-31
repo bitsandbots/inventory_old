@@ -21,7 +21,6 @@ $recent_sales    = find_recent_sale_added('5')
 ?>
 <?php include_once 'layouts/header.php'; ?>
 
-
 <script>
 function closePanel()
 {
@@ -34,13 +33,13 @@ function closePanel()
   }
 }
 </script>
-<!--     *************************     -->
+
+
 <div class="row">
    <div class="col-md-12">
      <?php echo display_msg($msg); ?>
    </div>
 </div>
-<!--     *************************     -->
   <div class="row">
     <div class="col-md-3">
        <div class="panel panel-box clearfix">
@@ -55,7 +54,7 @@ function closePanel()
         </div>
        </div>
     </div>
-<!--     *************************     -->
+
     <div class="col-md-3">
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-red">
@@ -69,7 +68,7 @@ function closePanel()
         </div>
        </div>
     </div>
-<!--     *************************     -->
+
     <div class="col-md-3">
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-blue">
@@ -88,7 +87,7 @@ function closePanel()
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-yellow">
 
-          <i class="glyphicon glyphicon-shopping-cart"></i>
+          <i class="glyphicon glyphicon-usd"></i>
 
         </div>
         <div class="panel-value pull-right">
@@ -97,9 +96,8 @@ function closePanel()
         </div>
        </div>
     </div>
-
-
-
+    </div>
+    
   <div class="row" id="myDIV">
    <div class="col-md-12">
       <div class="panel">
@@ -114,7 +112,7 @@ function closePanel()
       </div>
    </div>
   </div>
-<!--     *************************     -->
+
   <div class="row">
    <div class="col-md-4">
      <div class="panel panel-default">
