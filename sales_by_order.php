@@ -12,6 +12,7 @@ require_once 'includes/load.php';
 page_require_level(3);
 
 $order_id  = 0;
+
 if (isset($_GET['id'])) {
 	$order_id = (int) $_GET['id'];
 } else {
@@ -36,9 +37,9 @@ $order = find_by_id("orders", $order_id);
       <div class="panel-heading">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-<!--     *************************     -->
+
             <span>Order #<?php echo $order_id; ?></span>
-<!--     *************************     -->
+
        </strong>
       </div>
         <div class="panel-body">
@@ -54,7 +55,7 @@ $order = find_by_id("orders", $order_id);
                 </tr>
             </thead>
             <tbody>
-<!--     *************************     -->
+
                 <tr>
                     <td class="text-center">
 					<a href="add_sale_to_order.php?id=<?php echo (int)$order['id'];?>">
@@ -89,13 +90,13 @@ $order = find_by_id("orders", $order_id);
                     </td>
 
                 </tr>
-<!--     *************************     -->
+
             </tbody>
           </table>
        </div>
     </div>
 
-<!--     *************************     -->
+
 
   <div class="row">
     <div class="col-md-12">
@@ -110,7 +111,7 @@ $order = find_by_id("orders", $order_id);
           </div>
         </div>
         <div class="panel-body">
-<!--     *************************     -->
+
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
@@ -122,7 +123,7 @@ $order = find_by_id("orders", $order_id);
                 <th class="text-center" style="width: 100px;"> Actions </th>
              </tr>
             </thead>
-<!--     *************************     -->
+
            <tbody>
 
              <?php foreach ($sales as $sale):?>
@@ -147,20 +148,17 @@ $order = find_by_id("orders", $order_id);
 
              <?php endforeach;?>
 
-
-<!--     *************************     -->
-
              <tr>
                <td class="text-center"></td>
                <td class="text-center"></td>
                <td class="text-center"></td>
-			<?php
+<?php
 $order_total = 0;
 foreach ($sales as $sale) {
 	$order_total = $order_total + $sale['price'];
 }
 ?>
-               <td class="text-center"><?php echo formatcurrency ( number_format($order_total, 2), $CURRENCY_CODE); ?></td>
+               <td class="text-center"><?php echo formatcurrency($order_total, $CURRENCY_CODE); ?></td>
                <td class="text-center"></td>
                <td class="text-center"></td>
 
