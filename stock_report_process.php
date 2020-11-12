@@ -23,7 +23,7 @@ if (isset($_POST['submit'])) {
   }
 
 } else {
-	$session->msg("d", "Select dates");
+	$session->msg("d", "Sorry no products have been found.");
 	redirect('stock_report.php', false);
 }
 ?>
@@ -111,7 +111,7 @@ if (isset($_POST['submit'])) {
     </div>
   <?php
 else:
-	$session->msg("d", "Sorry no sales has been found. ");
+	$session->msg("d", "Sorry no products have been found. ");
 redirect('stock_report.php', false);
 endif;
 ?>
