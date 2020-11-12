@@ -1,34 +1,30 @@
 <?php
 /**
- * sale_report_process.php
+ * stock_report_process.php
  *
  * @package default
  */
 
 
-$page_title = 'Sales Report';
-$results = '';
+$page_title = 'Stock Report';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(3);
-?>
-<?php
-if (isset($_POST['submit'])) {
-	$req_dates = array('start-date', 'end-date');
-	validate_fields($req_dates);
 
-	if (empty($errors)):
-		$start_date   = remove_junk($db->escape($_POST['start-date']));
-	$end_date     = remove_junk($db->escape($_POST['end-date']));
-	$results      = find_sale_by_dates($start_date, $end_date);
-	else:
-		$session->msg("d", $errors);
-	redirect('sales_report.php', false);
-	endif;
+if (isset($_POST['submit'])) {
+	$req = array('product-category');
+	validate_fields($req);
+
+	if (empty($errors))
+  {
+	$products = find_products_by_category((int)$_POST['product-category']);
+  } else {
+	$products = join_product_table();
+  }
 
 } else {
 	$session->msg("d", "Select dates");
-	redirect('sales_report.php', false);
+	redirect('stock_report.php', false);
 }
 ?>
 <!doctype html>
@@ -83,63 +79,40 @@ if (isset($_POST['submit'])) {
    </style>
 </head>
 <body>
-  <?php if ($results): ?>
+  <?php if ($products): ?>
     <div class="page-break">
        <div class="sale-head pull-right">
-           <h1>Sales Report</h1>
-           <strong><?php if (isset($start_date)) { echo $start_date;}?> To <?php if (isset($end_date)) {echo $end_date;}?> </strong>
+           <h1>Stock Report</h1>
        </div>
       <table class="table table-border">
         <thead>
           <tr>
-              <th>Date</th>
+              <th>Product ID#</th>
               <th>Product Title</th>
+              <th>Category</th>
+              <th>Quantity</th>
               <th>Cost Price</th>
-              <th>Selling Price</th>
-              <th>Total Qty</th>
-              <th>TOTAL</th>
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($results as $result): ?>
+          <?php foreach ($products as $product): ?>
            <tr>
-              <td class=""><?php echo remove_junk($result['date']);?></td>
+              <td class="text-center"><?php echo remove_junk($product['id']);?></td>
               <td class="desc">
-                <h6><?php echo remove_junk(ucfirst($result['name']));?></h6>
+                <h6><?php echo remove_junk(ucfirst($product['name']));?></h6>
               </td>
-              <td class="text-right"><?php echo remove_junk($result['buy_price']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['sale_price']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['total_sales']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['total_saleing_price']);?></td>
+              <td class="text-center"><?php echo remove_junk($product['category']);?></td>
+              <td class="text-center"><?php echo remove_junk($product['quantity']);?></td>
+              <td class="text-right"><?php echo remove_junk($product['buy_price']);?></td>
           </tr>
         <?php endforeach; ?>
         </tbody>
-        <tfoot>
-         <tr class="text-right">
-           <td colspan="4"></td>
-           <td colspan="1">Grand Total</td>
-           <td>
-           <?php 
-           echo formatcurrency( total_price($results)[0], $CURRENCY_CODE);
-            ?>
-          </td>
-         </tr>
-         <tr class="text-right">
-           <td colspan="4"></td>
-           <td colspan="1">Profit</td>
-           <td>
-          <?php 
-           echo formatcurrency( total_price($results)[1], $CURRENCY_CODE);
-           ?>
-          </td>
-         </tr>
-        </tfoot>
       </table>
     </div>
   <?php
 else:
 	$session->msg("d", "Sorry no sales has been found. ");
-redirect('sales_report.php', false);
+redirect('stock_report.php', false);
 endif;
 ?>
 </body>

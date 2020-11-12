@@ -12,7 +12,7 @@ require_once 'includes/load.php';
 page_require_level(3);
 
 $order_id = last_id('orders');
-$o_id = $order_id[id];
+$o_id = $order_id['id'];
 
 ?>
 <?php
