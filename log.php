@@ -87,20 +87,17 @@ foreach ($logs as $log ) {
 </td>
 
 <td class="text-center">
-<?php echo $log['user_id']; ?>
+<?php
+$user =  find_by_id( "users",$log['user_id'] );
+echo $user['name'];
+?>
 </td>
 <td class="text-center">
-<?php echo $log['remote_ip']; ?>
+<?php  echo $log['remote_ip']; ?>
 </td>
 <td class="text-center">
 <?php echo $log['action']; ?>
 </td>
-
-<?php
-	//$category = find_by_id("categories",$setting['category_id']);
-	//echo $category['name'];
-?>
-
 
 <td class="text-center">
 <?php echo $log['date']; ?>
