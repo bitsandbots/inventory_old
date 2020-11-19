@@ -22,7 +22,7 @@ if (isset($_POST['add_sale'])) {
 		$s_qty     = $db->escape((int)$_POST['quantity']);
 
 		$product = find_by_id("products", $p_id);
-		if ( (int)$product[quantity] < $s_qty ) {
+		if ( (int)$product['quantity'] < $s_qty ) {
 			$session->msg('d', ' Insufficient Quantity for Sale!');
 			redirect('add_sale.php', false);
 		}

@@ -10,6 +10,7 @@ $page_title = 'Add Sale';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(3);
+$order_id = 0;
 
 if (isset($_GET['id'])) {
 	$order_id = (int)$_GET['id'];
@@ -35,7 +36,6 @@ if (isset($_POST['add_sale'])) {
 		$s_price      = $db->escape($_POST['sale_price']);
 		$s_total   = $s_qty * $s_price;
 
-		$s_date      = $db->escape($_POST['date']);
 		$date    = make_date();
 
 		$sql  = "INSERT INTO sales (";
