@@ -14,9 +14,6 @@ page_require_level(3);
 $order_id = last_id('orders');
 $o_id = $order_id['id'];
 
-?>
-<?php
-
 if (isset($_POST['add_sale'])) {
 	$req_fields = array('s_id', 'quantity', 'price', 'total', 'date' );
 	validate_fields($req_fields);
@@ -98,7 +95,8 @@ if (isset($_POST['add_sale'])) {
            <thead>
             <th> Item </th>
             <th> Price </th>
-            <th> Qty </th>
+            <th> Available </th>
+            <th> Quantity </th>
             <th> Total </th>
             <th> Date</th>
             <th> Action</th>

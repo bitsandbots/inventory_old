@@ -107,6 +107,7 @@ $all_categories = find_all('categories');
             <th> Item </th>
             <th> Photo </th>
             <th> Price </th>
+            <th> Available </th>
             <th> Quantity </th>
             <th> Action</th>
            </thead>
@@ -151,6 +152,10 @@ foreach ( $products_available as $product ) {
 <input type="hidden" class="form-control" name="sale_price" value="<?php echo $product['sale_price']; ?>">
 <td id="s_price">
 <?php echo $product['sale_price']; ?>
+</td>
+
+<td class="text-center">
+<?php echo $product['quantity']; ?>
 </td>
 <td id="s_qty">
                    <div class="input-group">

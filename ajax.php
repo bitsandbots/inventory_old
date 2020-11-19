@@ -41,10 +41,13 @@ if (isset($_POST['p_name']) && strlen($_POST['p_name'])) {
 
 			$html .= "<tr>";
 
-			$html .= "<td id=\"s_name\">".$result['name']."</td>";
+			$html .= "<td id=\"s_name\">{$result['name']}</td>";
 			$html .= "<input type=\"hidden\" name=\"s_id\" value=\"{$result['id']}\">";
 			$html  .= "<td>";
 			$html  .= "<input type=\"text\" class=\"form-control\" name=\"price\" value=\"{$result['sale_price']}\">";
+			$html  .= "</td>";
+			$html .= "<td class=\"text-center\">";
+			$html .= "{$result['quantity']}";
 			$html  .= "</td>";
 			$html .= "<td id=\"s_qty\">";
 			$html .= "<input type=\"text\" class=\"form-control\" name=\"quantity\" value=\"1\">";
