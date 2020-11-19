@@ -117,9 +117,9 @@ $order = find_by_id("orders", $order_id);
               <tr>
                 <th class="text-center" style="width: 50px;">#</th>
                 <th> Product name </th>
-                <th class="text-center" style="width: 15%;"> Quantity</th>
+                <th class="text-center" style="width: 15%;"> Location </th>
+                <th class="text-center" style="width: 15%;"> Quantity </th>
                 <th class="text-center" style="width: 15%;"> Total </th>
-                <th class="text-center" style="width: 15%;"> Date </th>
                 <th class="text-center" style="width: 100px;"> Actions </th>
              </tr>
             </thead>
@@ -131,9 +131,9 @@ $order = find_by_id("orders", $order_id);
              <tr>
                <td class="text-center"><?php echo count_id();?></td>
                <td><?php echo remove_junk($sale['name']); ?></td>
+               <td class="text-center"><?php echo $sale['location']; ?></td>
                <td class="text-center"><?php echo (int)$sale['qty']; ?></td>
                <td class="text-center"><?php echo remove_junk($sale['price']); ?></td>
-               <td class="text-center"><?php echo $sale['date']; ?></td>
                <td class="text-center">
                   <div class="btn-group">
                      <a href="edit_sale.php?id=<?php echo (int)$sale['id'];?>" class="btn btn-warning btn-xs"  title="Edit" data-toggle="tooltip">
@@ -152,6 +152,7 @@ $order = find_by_id("orders", $order_id);
                <td class="text-center"></td>
                <td class="text-center"></td>
                <td class="text-center"></td>
+               <td class="text-center"></td>
 <?php
 $order_total = 0;
 foreach ($sales as $sale) {
@@ -159,7 +160,6 @@ foreach ($sales as $sale) {
 }
 ?>
                <td class="text-center"><?php echo formatcurrency($order_total, $CURRENCY_CODE); ?></td>
-               <td class="text-center"></td>
                <td class="text-center"></td>
 
 

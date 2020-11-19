@@ -374,7 +374,7 @@ function tableExists($table){
  /*--------------------------------------------------------------*/
  function find_sales_by_order_id($id) {
    global $db;
-   $sql  = "SELECT s.id,s.qty,s.price,s.date,p.name";
+   $sql  = "SELECT s.id,s.qty,s.price,s.date,p.name,p.location";
    $sql .= " FROM sales s";
    $sql .= " LEFT JOIN orders o ON s.order_id = o.id";
    $sql .= " LEFT JOIN products p ON s.product_id = p.id";
