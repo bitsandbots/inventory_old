@@ -106,9 +106,10 @@ $all_categories = find_all('categories');
            <thead>
             <th> Item </th>
             <th> Photo </th>
-            <th> Price </th>
+            <th> Location </th>
             <th> Available </th>
             <th> Quantity </th>
+            <th> Price </th>
             <th> Action</th>
            </thead>
              <tbody  id="product_info">
@@ -146,18 +147,18 @@ foreach ( $products_available as $product ) {
                   <img class="img-avatar img-circle" src="uploads/products/<?php echo $product['image']; ?>" alt="">
                 <?php endif; ?>
                 </td>
-
+<td class="text-center">
+<?php echo $product['location']; ?>
+</td>
 <input type="hidden" name="s_id" value="<?php echo $product['id']; ?>">
 <input type="hidden" name="order_id" value="<?php echo $order_id; ?>">
 <input type="hidden" class="form-control" name="sale_price" value="<?php echo $product['sale_price']; ?>">
-<td id="s_price">
-<?php echo $product['sale_price']; ?>
-</td>
 
 <td class="text-center">
 <?php echo $product['quantity']; ?>
 </td>
 <td id="s_qty">
+
                    <div class="input-group">
                      <span class="input-group-addon">
                       <i class="glyphicon glyphicon-shopping-cart"></i>
@@ -166,6 +167,9 @@ foreach ( $products_available as $product ) {
                   </div>
                  </div>
 
+</td>
+<td id="s_price">
+<?php echo $product['sale_price']; ?>
 </td>
 <td>
 <button type="submit" name="add_sale" class="btn btn-primary">

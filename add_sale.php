@@ -94,9 +94,10 @@ if (isset($_POST['add_sale'])) {
          <table class="table table-bordered">
            <thead>
             <th> Item </th>
-            <th> Price </th>
+            <th> Location </th>
             <th> Available </th>
             <th> Quantity </th>
+            <th> Price </th>
             <th> Total </th>
             <th> Date</th>
             <th> Action</th>
