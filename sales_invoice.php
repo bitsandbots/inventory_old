@@ -1,41 +1,33 @@
 <?php
 /**
- * sale_report_process.php
+ * sales_invoice.php
  *
  * @package default
  */
 
 
-$page_title = 'Sales Report';
+$page_title = 'Sales Invoice';
 $results = '';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(3);
-?>
-<?php
-if (isset($_POST['submit'])) {
-	$req_dates = array('start-date', 'end-date');
-	validate_fields($req_dates);
+$order_id  = 0;
 
-	if (empty($errors)):
-		$start_date   = remove_junk($db->escape($_POST['start-date']));
-	$end_date     = remove_junk($db->escape($_POST['end-date']));
-	$results      = find_sale_by_dates($start_date, $end_date);
-	else:
-		$session->msg("d", $errors);
-	redirect('sales_report.php', false);
-	endif;
-
+if (isset($_GET['id'])) {
+	$order_id = (int) $_GET['id'];
 } else {
-	$session->msg("d", "Select dates");
-	redirect('sales_report.php', false);
+	$session->msg("d", "Missing order id.");
 }
+
+$sales = find_sales_by_order_id( $order_id );
+$order = find_by_id("orders", $order_id);
 ?>
+
 <!doctype html>
 <html lang="en-US">
  <head>
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   <title>Sales Report</title>
+   <title>Sales Invoice</title>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
    <style>
    @media print {
@@ -83,63 +75,56 @@ if (isset($_POST['submit'])) {
    </style>
 </head>
 <body>
-  <?php if ($results): ?>
+  <?php if ($sales): ?>
     <div class="page-break">
        <div class="sale-head pull-right">
-           <h1>Sales Report</h1>
-           <strong><?php if (isset($start_date)) { echo $start_date;}?> To <?php if (isset($end_date)) {echo $end_date;}?> </strong>
+           <h1>Sales Invoice</h1>
+           <strong><?php echo remove_junk(ucfirst($order['customer']));?> </strong>
+           <strong><?php echo remove_junk($order['date']);?> </strong>
        </div>
       <table class="table table-border">
         <thead>
           <tr>
-              <th>Date</th>
               <th>Product Title</th>
-              <th>Cost Price</th>
-              <th>Selling Price</th>
-              <th>Total Qty</th>
+              <th>Price</th>
+              <th>Quantity</th>
               <th>TOTAL</th>
           </tr>
         </thead>
         <tbody>
-          <?php foreach ($results as $result): ?>
+          <?php foreach ($sales as $sale): ?>
            <tr>
-              <td class=""><?php echo remove_junk($result['date']);?></td>
               <td class="desc">
-                <h6><?php echo remove_junk(ucfirst($result['name']));?></h6>
+                <h6><?php echo remove_junk(ucfirst($sale['name']));?></h6>
               </td>
-              <td class="text-right"><?php echo remove_junk($result['buy_price']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['sale_price']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['total_sales']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['total_saleing_price']);?></td>
+              <td class="text-right"><?php echo remove_junk($sale['price']);?></td>
+              <td class="text-right"><?php echo remove_junk($sale['qty']);?></td>
+
+<?php
+	$sales_total = remove_junk($sale['qty']) * remove_junk($sale['price']);
+?>
+               <td class="text-center"><?php echo formatcurrency($sales_total, $CURRENCY_CODE); ?></td>
           </tr>
         <?php endforeach; ?>
         </tbody>
         <tfoot>
          <tr class="text-right">
-           <td colspan="4"></td>
+           <td colspan="2"></td>
            <td colspan="1">Grand Total</td>
-           <td>
-           <?php 
-           echo formatcurrency( total_price($results)[0], $CURRENCY_CODE);
-            ?>
-          </td>
-         </tr>
-         <tr class="text-right">
-           <td colspan="4"></td>
-           <td colspan="1">Profit</td>
-           <td>
-          <?php 
-           echo formatcurrency( total_price($results)[1], $CURRENCY_CODE);
-           ?>
-          </td>
-         </tr>
+<?php
+$order_total = 0;
+foreach ($sales as $sale) {
+	$order_total = $order_total + remove_junk($sale['price']);
+}
+?>
+               <td class="text-center"><?php echo formatcurrency($order_total, $CURRENCY_CODE); ?></td>
         </tfoot>
       </table>
     </div>
   <?php
 else:
 	$session->msg("d", "Sorry no sales has been found. ");
-redirect('sales_report.php', false);
+redirect('orders.php', false);
 endif;
 ?>
 </body>
