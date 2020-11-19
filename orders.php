@@ -51,7 +51,7 @@ $all_orders = find_all('orders')
               <?php foreach ($all_orders as $order):?>
                 <tr>
                     <td class="text-center">
-					<a href="sales_invoice.php?id=<?php echo (int)$order['id'];?>">
+					<a href="sales_by_order.php?id=<?php echo (int)$order['id'];?>">
 					<?php echo $order['id'];?>
 					</a>
 					</td>

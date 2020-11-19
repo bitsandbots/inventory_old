@@ -58,7 +58,7 @@ $order = find_by_id("orders", $order_id);
 
                 <tr>
                     <td class="text-center">
-					<a href="add_sale_to_order.php?id=<?php echo (int)$order['id'];?>">
+					<a href="sales_invoice.php?id=<?php echo (int)$order['id'];?>">
 					<?php echo $order['id'];?>
 					</a>
 					</td>
