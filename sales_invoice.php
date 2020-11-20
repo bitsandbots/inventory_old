@@ -7,11 +7,12 @@
 
 
 $page_title = 'Sales Invoice';
-$results = '';
+
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(3);
 $order_id  = 0;
+$order_total = 0;
 
 if (isset($_GET['id'])) {
 	$order_id = (int) $_GET['id'];
@@ -21,6 +22,7 @@ if (isset($_GET['id'])) {
 
 $sales = find_sales_by_order_id( $order_id );
 $order = find_by_id("orders", $order_id);
+$products_available = join_product_table();
 ?>
 
 <!doctype html>
@@ -94,16 +96,22 @@ $order = find_by_id("orders", $order_id);
         <tbody>
           <?php foreach ($sales as $sale): ?>
            <tr>
-              <td class="desc">
-                <h6><?php echo remove_junk(ucfirst($sale['name']));?></h6>
+              <td class="text-center"><?php echo remove_junk(ucfirst($sale['name']));?></td>
+              <td class="text-center">
+               <?php
+              foreach ( $products_available as $product ) {
+                            if ( $product['name'] == $sale['name'] )
+                            {
+                            echo remove_junk($product['sale_price']);
+                            }
+              }
+              ?>                    
               </td>
-              <td class="text-right"><?php echo remove_junk($sale['price']);?></td>
-              <td class="text-right"><?php echo remove_junk($sale['qty']);?></td>
-
+              <td class="text-center"><?php echo remove_junk($sale['qty']);?></td>
+              <td class="text-center"><?php echo formatcurrency( remove_junk($sale['price']), $CURRENCY_CODE); ?></td>
 <?php
-	$sales_total = remove_junk($sale['qty']) * remove_junk($sale['price']);
+	$order_total = $order_total + remove_junk($sale['price']);
 ?>
-               <td class="text-center"><?php echo formatcurrency($sales_total, $CURRENCY_CODE); ?></td>
           </tr>
         <?php endforeach; ?>
         </tbody>
@@ -111,12 +119,6 @@ $order = find_by_id("orders", $order_id);
          <tr class="text-right">
            <td colspan="2"></td>
            <td colspan="1">Grand Total</td>
-<?php
-$order_total = 0;
-foreach ($sales as $sale) {
-	$order_total = $order_total + remove_junk($sale['price']);
-}
-?>
                <td class="text-center"><?php echo formatcurrency($order_total, $CURRENCY_CODE); ?></td>
         </tfoot>
       </table>
