@@ -80,10 +80,13 @@ $products_available = join_product_table();
   <?php if ($sales): ?>
     <div class="page-break">
        <div class="sale-head pull-right">
-           <h1>Order Picklist</h1>
-           <strong><?php echo remove_junk(ucfirst($order['customer']));?> </strong>
+           <h1>Order #<?php echo remove_junk(ucfirst($order['id']));?></h1>
            <strong><?php echo remove_junk($order['date']);?> </strong>
        </div>
+       <div class="sale-head pull-left">
+           <h1><?php echo remove_junk(ucfirst($order['customer']));?> </h1>
+       </div>
+           
       <table class="table table-border">
         <thead>
           <tr>

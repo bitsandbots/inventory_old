@@ -6,7 +6,7 @@
  */
 
 
-$page_title = 'All sales by Order';
+$page_title = 'Sales by Order';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(3);
