@@ -57,10 +57,7 @@ $order = find_by_id("orders", $order_id);
             <tbody>
 
                 <tr>
-                    <td class="text-center">
-					<a href="sales_invoice.php?id=<?php echo (int)$order['id'];?>">
-					<?php echo $order['id'];?>
-					</a>
+                    <td class="text-center"><?php echo $order['id'];?>
 					</td>
 
                     <td class="text-center">
@@ -83,8 +80,11 @@ $order = find_by_id("orders", $order_id);
                         <a href="edit_order.php?id=<?php echo (int)$order['id'];?>"  class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit">
                           <span class="glyphicon glyphicon-edit"></span>
                         </a>
-                        <a href="delete_order.php?id=<?php echo (int)$order['id'];?>" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Remove">
-                          <span class="glyphicon glyphicon-trash"></span>
+                        <a href="order_picklist.php?id=<?php echo (int)$order['id'];?>"  class="btn btn-xs btn-primary" data-toggle="tooltip" title="Picklist">
+                          <span class="glyphicon glyphicon-hand-up"></span>
+                        </a>
+                        <a href="sales_invoice.php?id=<?php echo (int)$order['id'];?>"  class="btn btn-xs btn-success" data-toggle="tooltip" title="Invoice">
+                          <span class="glyphicon glyphicon-export"></span>
                         </a>
                       </div>
                     </td>
