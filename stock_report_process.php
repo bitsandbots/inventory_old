@@ -101,7 +101,7 @@ if (isset($_POST['submit'])) {
               <td class="text-center"><?php echo remove_junk(ucfirst($product['name']));?></td>
               <td class="text-center"><?php echo remove_junk($product['category']);?></td>
               <td class="text-center"><?php echo remove_junk($product['quantity']);?></td>
-              <td class="text-right"><?php echo remove_junk($product['buy_price']);?></td>
+              <td class="text-right"><?php echo  formatcurrency(remove_junk($product['buy_price']),$CURRENCY_CODE);?></td>
           </tr>
         <?php endforeach; ?>
         </tbody>
