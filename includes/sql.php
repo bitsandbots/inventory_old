@@ -52,6 +52,21 @@ function delete_by_id($table,$id)
    }
 }
 /*--------------------------------------------------------------*/
+/* Function for Delete data from table by ip
+/*--------------------------------------------------------------*/
+function delete_by_ip($table,$remote_ip)
+{
+  global $db;
+  if(tableExists($table))
+   {
+    $sql = "DELETE FROM ".$db->escape($table);
+    $sql .= " WHERE remote_ip='". $db->escape($remote_ip)."'";
+
+    $db->query($sql);
+    return ($db->affected_rows() >= 1) ? true : false;
+   }
+}
+/*--------------------------------------------------------------*/
 /* Function for Count id  By table name
 /*--------------------------------------------------------------*/
 
