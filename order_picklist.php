@@ -89,7 +89,7 @@ $products_available = join_product_table();
           <tr>
               <th>Product Title</th>
               <th>Product Location</th>
-              <th>Stock Available</th>
+              <th>Stock Remaining</th>
               <th>Quantity Ordered</th>
               <th>Available</th>
               <th>Picked</th>
