@@ -29,7 +29,7 @@
   </li>
   <li>
     <a href="#" class="submenu-toggle">
-      <i class="glyphicon glyphicon-th-large"></i>
+      <i class="glyphicon glyphicon-shopping-cart"></i>
       <span>Products</span>
     </a>
     <ul class="nav submenu">

@@ -115,7 +115,7 @@ if ( isset($_POST['update_category'] ) ) {
                 <td class="text-center">
                   <div class="btn-group">
 					<a href="add_stock.php?id=<?php echo (int)$product['id'];?>"  class="btn btn-xs btn-warning" data-toggle="tooltip" title="Add">
-					  <span class="glyphicon glyphicon-edit"></span>
+					  <span class="glyphicon glyphicon-th-large"></span>
 					</a>
                     <a href="edit_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-info btn-xs"  title="Edit" data-toggle="tooltip">
                       <span class="glyphicon glyphicon-edit"></span>
