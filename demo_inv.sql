@@ -107,6 +107,7 @@ CREATE TABLE `products` (
   `id` int(11) UNSIGNED NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `sku` varchar(100) NULL,
   `location` varchar(255) NOT NULL,
   `quantity` varchar(50) DEFAULT NULL,
   `buy_price` decimal(25,2) DEFAULT NULL,
