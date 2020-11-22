@@ -87,7 +87,7 @@ if (isset($_POST['submit'])) {
       <table class="table table-border">
         <thead>
           <tr>
-              <th>Product ID#</th>
+              <th>Product SKU</th>
               <th>Product Title</th>
               <th>Category</th>
               <th>Quantity</th>
@@ -97,7 +97,7 @@ if (isset($_POST['submit'])) {
         <tbody>
           <?php foreach ($products as $product): ?>
            <tr>
-              <td class="text-center"><?php echo remove_junk($product['id']);?></td>
+              <td class="text-center"><?php echo remove_junk($product['sku']);?></td>
               <td class="text-center"><?php echo remove_junk(ucfirst($product['name']));?></td>
               <td class="text-center"><?php echo remove_junk($product['category']);?></td>
               <td class="text-center"><?php echo remove_junk($product['quantity']);?></td>

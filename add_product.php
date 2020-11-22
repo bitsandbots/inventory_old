@@ -24,6 +24,7 @@ if (isset($_POST['add_product'])) {
 	if (empty($errors)) {
 		$p_name  = remove_junk($db->escape($_POST['product-title']));
 		$p_desc  = remove_junk($db->escape($_POST['product-desc']));
+		$p_sku  = remove_junk($db->escape($_POST['product-sku']));
 		$p_loc  = remove_junk($db->escape($_POST['product-location']));
 		$p_cat   = remove_junk($db->escape($_POST['product-category']));
 		$p_qty   = remove_junk($db->escape($_POST['product-quantity']));
@@ -36,9 +37,9 @@ if (isset($_POST['add_product'])) {
 		}
 		$date    = make_date();
 		$query  = "INSERT INTO products (";
-		$query .=" name,description,location,quantity,buy_price,sale_price,category_id,media_id,date";
+		$query .=" name,description,sku,location,quantity,buy_price,sale_price,category_id,media_id,date";
 		$query .=") VALUES (";
-		$query .=" '{$p_name}', '{$p_desc}', '{$p_loc}', '{$p_qty}', '{$p_buy}', '{$p_sale}', '{$p_cat}', '{$media_id}', '{$date}'";
+		$query .=" '{$p_name}', '{$p_desc}', '{$p_sku}', '{$p_loc}', '{$p_qty}', '{$p_buy}', '{$p_sale}', '{$p_cat}', '{$media_id}', '{$date}'";
 		$query .=")";
 		$query .=" ON DUPLICATE KEY UPDATE name='{$p_name}'";
 		if ($db->query($query)) {
@@ -120,7 +121,14 @@ if (isset($_POST['add_product'])) {
               </div>
 
 <!--     *************************     -->
-
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                   <i class="glyphicon glyphicon-th-large"></i>
+                  </span>
+                  <input type="text" class="form-control" name="product-sku" placeholder="Product SKU">
+               </div>
+              </div>
 <!--     *************************     -->
               <div class="form-group">
                 <div class="input-group">

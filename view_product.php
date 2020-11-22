@@ -92,6 +92,7 @@ foreach ($all_photo as $photo) {
 <!--     *************************     -->
                 <th class="text-center" style="width: 10%;"> Category </th>
                 <th class="text-center" style="width: 10%;"> Location </th>
+                <th class="text-center" style="width: 10%;"> SKU </th>
                 <th class="text-center" style="width: 10%;"> Stock </th>
                 <th class="text-center" style="width: 15%;"> Cost Price </th>
                 <th class="text-center" style="width: 15%;"> Sale Price </th>
@@ -113,6 +114,7 @@ foreach ($all_categories as $category ) {
 ?>
  			    <td class="text-center"> <?php echo remove_junk($category['name']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['location']); ?></td>
+                <td class="text-center"> <?php echo remove_junk($product['sku']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['quantity']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['buy_price']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['sale_price']); ?></td>
@@ -121,7 +123,7 @@ foreach ($all_categories as $category ) {
                 <td class="text-center">
                   <div class="btn-group">
 					<a href="add_stock.php?id=<?php echo (int)$product['id'];?>"  class="btn btn-xs btn-warning" data-toggle="tooltip" title="Add">
-					  <span class="glyphicon glyphicon-edit"></span>
+					  <span class="glyphicon glyphicon-th-large"></span>
 					</a>
                     <a href="edit_product.php?id=<?php echo (int)$product['id'];?>" class="btn btn-info btn-xs"  title="Edit" data-toggle="tooltip">
                       <span class="glyphicon glyphicon-edit"></span>

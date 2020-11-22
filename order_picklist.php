@@ -90,6 +90,7 @@ $products_available = join_product_table();
       <table class="table table-border">
         <thead>
           <tr>
+              <th>Product SKU</th>
               <th>Product Title</th>
               <th>Product Location</th>
               <th>Stock Remaining</th>
@@ -102,6 +103,16 @@ $products_available = join_product_table();
         <tbody>
           <?php foreach ($sales as $sale): ?>
            <tr>
+              <td class="text-center">
+              <?php
+              foreach ( $products_available as $product ) {
+                            if ( $product['name'] == $sale['name'] )
+                            {
+                            echo remove_junk($product['sku']);
+                            }
+              }
+              ?>              
+              </td>
               <td class="text-center"><?php echo remove_junk(ucfirst($sale['name']));?></td>
               <td class="text-center"><?php echo remove_junk($sale['location']);?></td>
               <td class="text-center">

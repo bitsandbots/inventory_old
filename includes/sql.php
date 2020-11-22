@@ -255,7 +255,7 @@ function tableExists($table){
    /*--------------------------------------------------------------*/
   function join_product_table(){
      global $db;
-     $sql  =" SELECT p.id,p.name,p.location,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+     $sql  =" SELECT p.id,p.name,p.sku,p.location,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
     $sql  .=" AS category,m.file_name AS image";
     $sql  .=" FROM products p";
     $sql  .=" LEFT JOIN categories c ON c.id = p.category_id";
@@ -295,7 +295,7 @@ function tableExists($table){
 
    function find_products_by_category($cat){
      global $db;
-     $sql  =" SELECT p.id,p.name,p.location,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
+     $sql  =" SELECT p.id,p.name,p.sku,p.location,p.quantity,p.buy_price,p.sale_price,p.media_id,p.date,c.name";
     $sql  .=" AS category,m.file_name AS image";
     $sql  .=" FROM products p";
     $sql  .=" LEFT JOIN categories c ON c.id = p.category_id";
@@ -389,7 +389,7 @@ function tableExists($table){
  /*--------------------------------------------------------------*/
  function find_sales_by_order_id($id) {
    global $db;
-   $sql  = "SELECT s.id,s.qty,s.price,s.date,p.name,p.location";
+   $sql  = "SELECT s.id,s.qty,s.price,s.date,p.name,p.sku,p.location";
    $sql .= " FROM sales s";
    $sql .= " LEFT JOIN orders o ON s.order_id = o.id";
    $sql .= " LEFT JOIN products p ON s.product_id = p.id";

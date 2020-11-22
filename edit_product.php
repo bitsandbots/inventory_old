@@ -26,6 +26,12 @@ if (isset($_POST['product'])) {
 	validate_fields($req_fields);
 
 	if (empty($errors)) {
+		if (is_null($_POST['product-sku']) || $_POST['product-sku'] === "") {
+			$p_sku  =  '';
+		} else {
+			$p_sku  = remove_junk($db->escape($_POST['product-sku']));
+		}
+
 		$p_name  = remove_junk($db->escape($_POST['product-title']));
 
 		if (is_null($_POST['product-desc']) || $_POST['product-desc'] === "") {
@@ -50,7 +56,7 @@ if (isset($_POST['product'])) {
 			$media_id = remove_junk($db->escape($_POST['product-photo']));
 		}
 		$query   = "UPDATE products SET";
-		$query  .=" name ='{$p_name}', description ='{$p_desc}',location ='{$p_loc}', quantity ='{$p_qty}',";
+		$query  .=" name ='{$p_name}', description ='{$p_desc}', sku ='{$p_sku}',location ='{$p_loc}', quantity ='{$p_qty}',";
 		$query  .=" buy_price ='{$p_buy}',sale_price ='{$p_sale}',category_id ='{$p_cat}',media_id ='{$media_id}'";
 		$query  .=" WHERE id ='{$product['id']}'";
 		$result = $db->query($query);
@@ -103,6 +109,14 @@ if (isset($_POST['product'])) {
                    <i class="glyphicon glyphicon-th-large"></i>
                   </span>
                   <input type="text" class="form-control" name="product-desc" value="<?php echo remove_junk($product['description']);?>" placeholder="Product Description">
+               </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                   <i class="glyphicon glyphicon-th-large"></i>
+                  </span>
+                  <input type="text" class="form-control" name="product-sku" value="<?php echo remove_junk($product['sku']);?>" placeholder="Product SKU">
                </div>
               </div>
               <div class="form-group">
