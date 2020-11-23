@@ -117,6 +117,7 @@ $order = find_by_id("orders", $order_id);
               <tr>
                 <th class="text-center" style="width: 50px;">#</th>
                 <th> Product name </th>
+                <th class="text-center" style="width: 15%;"> SKU </th>
                 <th class="text-center" style="width: 15%;"> Location </th>
                 <th class="text-center" style="width: 15%;"> Quantity </th>
                 <th class="text-center" style="width: 15%;"> Total </th>
@@ -131,6 +132,7 @@ $order = find_by_id("orders", $order_id);
              <tr>
                <td class="text-center"><?php echo count_id();?></td>
                <td><?php echo remove_junk($sale['name']); ?></td>
+               <td class="text-center"><?php echo $sale['sku']; ?></td>
                <td class="text-center"><?php echo $sale['location']; ?></td>
                <td class="text-center"><?php echo (int)$sale['qty']; ?></td>
                <td class="text-center"><?php echo remove_junk($sale['price']); ?></td>
@@ -149,6 +151,7 @@ $order = find_by_id("orders", $order_id);
              <?php endforeach;?>
 
              <tr>
+               <td class="text-center"></td>
                <td class="text-center"></td>
                <td class="text-center"></td>
                <td class="text-center"></td>

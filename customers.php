@@ -24,24 +24,23 @@ $all_customers = find_all('customers');
      </div>
   </div>
 
+  <div class="row">
     <div class="col-md-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <strong>
-          <span class="glyphicon glyphicon-th"></span>
-
-
-          <span>All Customers</span>
-
-
-       </strong>
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <strong>
+            <span class="glyphicon glyphicon-user"></span>
+            <span>All Customers</span>
+          </strong>
           <div class="pull-right">
             <a href="add_customer.php" class="btn btn-primary">Add Customer</a>
           </div>
-      </div>
+        </div>
         <div class="panel-body">
-          <table class="table table-bordered table-striped table-hover">
-            <thead>
+
+
+          <table class="table table-bordered table-striped">
+          <thead>
                 <tr>
                     <th class="text-center" style="width: 100px;">Customer</th>
                     <th class="text-center" style="width: 100px;">Address</th>

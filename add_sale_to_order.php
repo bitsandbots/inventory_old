@@ -93,7 +93,7 @@ $all_categories = find_all('categories');
 
 
 <div class="row">
-  <div class="col-md-9">
+  <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading clearfix">
         <strong>
@@ -104,13 +104,14 @@ $all_categories = find_all('categories');
       <div class="panel-body">
          <table class="table table-bordered">
            <thead>
-            <th> Item </th>
-            <th> Photo </th>
-            <th> Location </th>
-            <th> Available </th>
-            <th> Quantity </th>
-            <th> Price </th>
-            <th> Action</th>
+            <th class="text-center" style="width: 15px;"> Item </th>
+            <th class="text-center" style="width: 50px;"> Photo </th>
+            <th class="text-center" style="width: 15px;"> SKU </th>
+            <th class="text-center" style="width: 50px;"> Location </th>
+            <th class="text-center" style="width: 15px;"> Available </th>
+            <th class="text-center" style="width: 15px;"> Quantity </th>
+            <th class="text-center" style="width: 50px;"> Price </th>
+            <th class="text-center" style="width: 50px;"> Action</th>
            </thead>
              <tbody  id="product_info">
 <?php
@@ -148,6 +149,9 @@ foreach ( $products_available as $product ) {
                 <?php endif; ?>
                 </td>
 <td class="text-center">
+<?php echo $product['sku']; ?>
+</td>
+<td class="text-center">
 <?php echo $product['location']; ?>
 </td>
 <input type="hidden" name="s_id" value="<?php echo $product['id']; ?>">
@@ -169,7 +173,7 @@ foreach ( $products_available as $product ) {
 
 </td>
 <td id="s_price">
-<?php echo $product['sale_price']; ?>
+<?php echo formatcurrency( $product['sale_price'], $CURRENCY_CODE); ?>
 </td>
 <td>
 <button type="submit" name="add_sale" class="btn btn-primary">

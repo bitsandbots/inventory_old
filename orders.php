@@ -18,23 +18,21 @@ $all_orders = find_all('orders')
      </div>
   </div>
 
+  <div class="row">
     <div class="col-md-12">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <strong>
-          <span class="glyphicon glyphicon-th"></span>
-
-
-          <span>All Orders</span>
-
-
-       </strong>
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <strong>
+            <span class="glyphicon glyphicon-th"></span>
+            <span>All Orders</span>
+          </strong>
           <div class="pull-right">
             <a href="add_order.php" class="btn btn-primary">Add Order</a>
           </div>
-      </div>
+        </div>
         <div class="panel-body">
-          <table class="table table-bordered table-striped table-hover">
+
+          <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th class="text-center" style="width: 50px;">#</th>

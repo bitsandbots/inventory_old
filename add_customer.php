@@ -98,7 +98,7 @@ if (isset($_POST['add_customer'])) {
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-th-large"></i>
+                   <i class="glyphicon glyphicon-user"></i>
                   </span>
                   <input type="text" class="form-control" name="customer-name" value="">
                </div>
@@ -108,7 +108,7 @@ if (isset($_POST['add_customer'])) {
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-th-large"></i>
+                   <i class="glyphicon glyphicon-home"></i>
                   </span>
                   <input type="text" class="form-control" name="customer-address" value="" placeholder="Address">
                </div>
@@ -116,7 +116,7 @@ if (isset($_POST['add_customer'])) {
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-th-large"></i>
+                   <i class="glyphicon glyphicon-envelope"></i>
                   </span>
                   <input type="text" class="form-control" name="customer-postcode" value="" placeholder="Postal Code">
                </div>
@@ -124,7 +124,7 @@ if (isset($_POST['add_customer'])) {
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-th-large"></i>
+                   <i class="glyphicon glyphicon-phone"></i>
                   </span>
                   <input type="text" class="form-control" name="customer-telephone" value="" placeholder="Telephone">
                </div>
@@ -132,7 +132,7 @@ if (isset($_POST['add_customer'])) {
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-th-large"></i>
+                   <i class="glyphicon glyphicon-globe"></i>
                   </span>
                   <input type="text" class="form-control" name="customer-email" value="" placeholder="Email">
                </div>

@@ -1,5 +1,5 @@
 
-function suggestion() {
+function suggestion_name() {
 
      $('#sug_input').keyup(function(e) {
 
@@ -66,6 +66,77 @@ function suggestion() {
             });
       e.preventDefault();
   });
+
+
+function suggestion_sku() {
+
+     $('#sug_sku_input').keyup(function(e) {
+
+         var formData = {
+             'product_sku' : $('input[name=sku]').val()
+         };
+
+         if(formData['product_sku'].length >= 1){
+
+           // process the form
+           $.ajax({
+               type        : 'POST',
+               url         : 'ajax_sku.php',
+               data        : formData,
+               dataType    : 'json',
+               encode      : true
+           })
+               .done(function(data) {
+                   //console.log(data);
+                   $('#result').html(data).fadeIn();
+                   $('#result li').click(function() {
+
+                     $('#sug_sku_input').val($(this).text());
+                     $('#result').fadeOut(500);
+
+                   });
+
+                   $("#sug_sku_input").blur(function(){
+                     $("#result").fadeOut(500);
+                   });
+
+               });
+
+         } else {
+
+           $("#result").hide();
+
+         };
+
+         e.preventDefault();
+     });
+
+ }
+  $('#sug-sku-form').submit(function(e) {
+      var formData = {
+          'p_name' : $('input[name=sku]').val()
+      };
+        // process the form
+        $.ajax({
+            type        : 'POST',
+            url         : 'ajax_sku.php',
+            data        : formData,
+            dataType    : 'json',
+            encode      : true
+        })
+            .done(function(data) {
+                //console.log(data);
+                $('#product_info').html(data).show();
+                total();
+                $('.datePicker').datepicker('update', new Date());
+
+            }).fail(function() {
+                $('#product_info').html(data).show();
+            });
+      e.preventDefault();
+  });
+
+
   function total(){
     $('#product_info input').change(function(e)  {
             var price = +$('input[name=price]').val() || 0;
@@ -84,7 +155,9 @@ function suggestion() {
        $(this).parent().children('ul.submenu').toggle(200);
     });
     //suggestion for finding product names
-    suggestion();
+    suggestion_name();
+    //suggestion for finding product names
+    suggestion_sku();
     // Callculate total ammont
     total();
 

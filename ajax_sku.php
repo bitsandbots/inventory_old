@@ -1,6 +1,6 @@
 <?php
 /**
- * ajax.php
+ * ajax_sku.php
  *
  * @package default
  */
@@ -13,8 +13,8 @@ if (!$session->isUserLoggedIn(true)) { redirect('index.php', false);}
 <?php
 // Auto suggestion
 $html = '';
-if (isset($_POST['product_name']) && strlen($_POST['product_name'])) {
-	$products = find_product_by_title($_POST['product_name']);
+if (isset($_POST['product_sku']) && strlen($_POST['product_sku'])) {
+	$products = find_product_by_sku($_POST['product_sku']);
 	if ($products) {
 		foreach ($products as $product):
 			$html .= "<li class=\"list-group-item\">";
@@ -46,7 +46,7 @@ if (isset($_POST['p_name']) && strlen($_POST['p_name'])) {
 			$html .= "<input type=\"hidden\" name=\"s_id\" value=\"{$result['id']}\">";
 			$html .= "<td class=\"text-center\">";
 			$html .= "{$result['sku']}";
-			$html  .= "</td>";
+			$html .= "</td>";
 			$html .= "<td class=\"text-center\">";
 			$html .= "{$result['location']}";
 			$html  .= "</td>";

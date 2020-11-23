@@ -1,6 +1,6 @@
 <?php
 /**
- * add_sale.php
+ * add_sale_by_sku.php
  *
  * @package default
  */
@@ -54,13 +54,13 @@ if (isset($_POST['add_sale'])) {
 <div class="row">
   <div class="col-md-6">
     <?php echo display_msg($msg); ?>
-    <form method="post" action="ajax.php" autocomplete="off" id="sug-form">
+    <form method="post" action="ajax_sku.php" autocomplete="off" id="sug-sku-form">
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-btn">
               <button type="submit" class="btn btn-primary">Find It</button>
             </span>
-            <input type="text" id="sug_input" class="form-control" name="title"  placeholder="Search for product name">
+            <input type="text" id="sug_sku_input" class="form-control" name="sku"  placeholder="Search for product SKU">
          </div>
          <div id="result" class="list-group"></div>
         </div>

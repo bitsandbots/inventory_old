@@ -305,6 +305,34 @@ function tableExists($table){
     return find_by_sql($sql);
   }
 
+
+  /*--------------------------------------------------------------*/
+  /* Function for Finding all product name
+  /* Request coming from ajax_sku.php for auto suggest
+  /*--------------------------------------------------------------*/
+
+   function find_product_by_sku($product_sku){
+     global $db;
+     $p_sku = remove_junk($db->escape($product_sku));
+     $sql = "SELECT name FROM products WHERE sku like '%$p_sku%' LIMIT 5";
+     $result = find_by_sql($sql);
+     return $result;
+   }
+
+  /*--------------------------------------------------------------*/
+  /* Function for Finding all product info by product title
+  /* Request coming from ajax_sku.php
+  /*--------------------------------------------------------------*/
+  function find_all_product_info_by_sku($product_sku){
+    global $db;
+    $sql  = "SELECT * FROM products ";
+    $sql .= " WHERE sku ='{$product_sku}'";
+    $sql .=" LIMIT 1";
+    return find_by_sql($sql);
+  }
+
+
+
   /*--------------------------------------------------------------*/
   /* Function for Finding all product by category
   /*--------------------------------------------------------------*/
