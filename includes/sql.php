@@ -36,6 +36,22 @@ function find_by_id($table,$id)
             return null;
      }
 }
+
+/*--------------------------------------------------------------*/
+/*  Function for Find data from table by name
+/*--------------------------------------------------------------*/
+function find_by_name($table,$name)
+{
+  global $db;
+    if(tableExists($table)){
+          $sql = $db->query("SELECT * FROM {$db->escape($table)} WHERE name='{$db->escape($name)}' LIMIT 1");
+          if($result = $db->fetch_assoc($sql))
+            return $result;
+          else
+            return null;
+     }
+}
+
 /*--------------------------------------------------------------*/
 /* Function for Delete data from table by id
 /*--------------------------------------------------------------*/

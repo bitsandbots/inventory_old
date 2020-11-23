@@ -22,7 +22,9 @@ if (isset($_GET['id'])) {
 
 $sales = find_sales_by_order_id( $order_id );
 $order = find_by_id("orders", $order_id);
+$customer = find_by_name('customers', $order['customer']);
 $products_available = join_product_table();
+
 ?>
 
 <!doctype html>
@@ -85,6 +87,8 @@ $products_available = join_product_table();
        </div>
        <div class="sale-head pull-left">
            <h1><?php echo remove_junk(ucfirst($order['customer']));?> </h1>
+           <strong><?php echo remove_junk($customer['address']); echo "&nbsp;&nbsp;"; echo remove_junk($customer['postcode']);?> </strong>
+           <?php echo remove_junk($customer['telephone']); echo "&nbsp; | &nbsp;"; echo remove_junk($customer['email']);?>
        </div>       
       <table class="table table-border">
         <thead>
