@@ -18,13 +18,19 @@ $new_order_id = $order_id['id'] + 1;
 if (isset($_POST['add_order'])) {
 	$customer = remove_junk($db->escape($_POST['customer']));
 	$paymethod = remove_junk($db->escape($_POST['paymethod']));
+	//$c_address = "";
+	//$c_postcode = "";
+	//$c_telephone = "";
+	//$c_email = "";
 	
 	if ( ! find_by_name('customers',$customer) )
 	{
 		$query  = "INSERT INTO customers (";
-		$query .=" name,address,postcode,telephone,email,paymethod";
+		//$query .=" name,address,postcode,telephone,email,paymethod";
+		$query .=" name,paymethod";
 		$query .=") VALUES (";
-		$query .=" '{$customer}', '{$c_address}', '{$c_postcode}', '{$c_telephone}', '{$c_email}', '{$paymethod}'";
+		//$query .=" '{$customer}', '{$c_address}', '{$c_postcode}', '{$c_telephone}', '{$c_email}', '{$paymethod}'";
+		$query .=" '{$customer}', '{$paymethod}'";
 		$query .=")";
 		$result = $db->query($query);
 		if ($result && $db->affected_rows() === 1) {
@@ -71,8 +77,7 @@ include_once 'layouts/header.php';
         </div>
 
         <div class="form-group">
-              <label for="name" class="control-label">Customer Name</label>
-              <input type="text" class="form-control" name="customer" value="" placeholder="Customer">
+              <input type="text" class="form-control" name="customer" value="" placeholder="Customer Name">
         </div>
 
            <div class="form-group">

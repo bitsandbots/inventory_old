@@ -43,14 +43,13 @@ $all_customers = find_all('customers');
           <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th class="text-center" style="width: 50px;">#</th>
-                    <th class="text-center" style="width: 50px;">Customer</th>
-                    <th class="text-center" style="width: 50px;">Address</th>
+                    <th class="text-center" style="width: 100px;">Customer</th>
+                    <th class="text-center" style="width: 100px;">Address</th>
                     <th class="text-center" style="width: 50px;">Postal Code</th>
                     <th class="text-center" style="width: 50px;">Telephone</th>
                     <th class="text-center" style="width: 50px;">Email</th>
                     <th class="text-center" style="width: 50px;">Pay Method</th>
-                    <th class="text-center" style="width: 100px;">Actions</th>
+                    <th class="text-center" style="width: 50px;">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -58,12 +57,6 @@ $all_customers = find_all('customers');
 
               <?php foreach ($all_customers as $customer):?>
                 <tr>
-                    <td class="text-center">
-					<a href="sales_by_customer.php?id=<?php echo (int)$customer['id'];?>">
-					<?php echo $customer['id'];?>
-					</a>
-					</td>
-
                     <td class="text-center">
 						<?php echo remove_junk(ucfirst($customer['name']));?>
 					</td>

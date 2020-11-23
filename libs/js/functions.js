@@ -1,5 +1,5 @@
 
-function suggetion() {
+function suggestion() {
 
      $('#sug_input').keyup(function(e) {
 
@@ -83,8 +83,8 @@ function suggetion() {
     $('.submenu-toggle').click(function () {
        $(this).parent().children('ul.submenu').toggle(200);
     });
-    //suggetion for finding product names
-    suggetion();
+    //suggestion for finding product names
+    suggestion();
     // Callculate total ammont
     total();
 

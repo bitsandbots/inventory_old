@@ -97,7 +97,7 @@ if (isset($_POST['edit_customer'])) {
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-th-large"></i>
+                   <i class="glyphicon glyphicon-user"></i>
                   </span>
                   <input type="text" class="form-control" name="customer-name" value="<?php echo remove_junk($customer['name']);?>">
                </div>
@@ -107,7 +107,7 @@ if (isset($_POST['edit_customer'])) {
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-th-large"></i>
+                   <i class="glyphicon glyphicon-home"></i>
                   </span>
                   <input type="text" class="form-control" name="customer-address" value="<?php echo remove_junk($customer['address']);?>" placeholder="Address">
                </div>
@@ -115,7 +115,7 @@ if (isset($_POST['edit_customer'])) {
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-th-large"></i>
+                   <i class="glyphicon glyphicon-envelope"></i>
                   </span>
                   <input type="text" class="form-control" name="customer-postcode" value="<?php echo remove_junk($customer['postcode']);?>" placeholder="Postal Code">
                </div>
@@ -123,7 +123,7 @@ if (isset($_POST['edit_customer'])) {
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-th-large"></i>
+                   <i class="glyphicon glyphicon-phone"></i>
                   </span>
                   <input type="text" class="form-control" name="customer-telephone" value="<?php echo remove_junk($customer['telephone']);?>" placeholder="Telephone">
                </div>
@@ -131,7 +131,7 @@ if (isset($_POST['edit_customer'])) {
               <div class="form-group">
                 <div class="input-group">
                   <span class="input-group-addon">
-                   <i class="glyphicon glyphicon-th-large"></i>
+                   <i class="glyphicon glyphicon-globe"></i>
                   </span>
                   <input type="text" class="form-control" name="customer-email" value="<?php echo remove_junk($customer['email']);?>" placeholder="Email">
                </div>
@@ -140,11 +140,12 @@ if (isset($_POST['edit_customer'])) {
            <div class="form-group">
                     <select class="form-control" name="customer-paymethod">
                       <option value="">Select Payment Method</option>
-                      <option value="Cash">Cash</option>
-                      <option value="Check">Check</option>
-                      <option value="Credit">Credit</option>
-                      <option value="Charge">Charge to Account</option>
+                     <option value="Cash" <?php if ($customer['paymethod'] === "Cash" ): echo "selected"; endif; ?> >Cash</option>
+                     <option value="Check" <?php if ($customer['paymethod'] === "Check" ): echo "selected"; endif; ?> >Check</option>
+                     <option value="Credit" <?php if ($customer['paymethod'] === "Credit" ): echo "selected"; endif; ?> >Credit</option>
+                     <option value="Charge" <?php if ($customer['paymethod'] === "Charge" ): echo "selected"; endif; ?> >Charge to Account</option>
                     </select>
+
            </div>
 
                </div>

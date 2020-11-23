@@ -11,7 +11,7 @@ if (!$session->isUserLoggedIn(true)) { redirect('index.php', false);}
 ?>
 
 <?php
-// Auto suggetion
+// Auto suggestion
 $html = '';
 if (isset($_POST['product_name']) && strlen($_POST['product_name'])) {
 	$products = find_product_by_title($_POST['product_name']);
@@ -32,6 +32,7 @@ if (isset($_POST['product_name']) && strlen($_POST['product_name'])) {
 	echo json_encode($html);
 }
 ?>
+
  <?php
 // find all product
 if (isset($_POST['p_name']) && strlen($_POST['p_name'])) {
