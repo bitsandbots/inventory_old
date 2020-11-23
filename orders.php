@@ -18,7 +18,7 @@ $all_orders = find_all('orders')
      </div>
   </div>
 
-    <div class="col-md-9">
+    <div class="col-md-12">
     <div class="panel panel-default">
       <div class="panel-heading">
         <strong>
@@ -71,10 +71,15 @@ $all_orders = find_all('orders')
 						<?php echo remove_junk(ucfirst($order['date']));?>
 					</td>
 
+  <?php $customer = find_by_name('customers',$order['customer']); ?>
+
                     <td class="text-center">
                       <div class="btn-group">
                         <a href="edit_order.php?id=<?php echo (int)$order['id'];?>"  class="btn btn-xs btn-warning" data-toggle="tooltip" title="Edit">
                           <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a href="edit_customer.php?id=<?php echo (int)$customer['id'];?>"  class="btn btn-xs btn-info" data-toggle="tooltip" title="Customer Details">
+                          <span class="glyphicon glyphicon-user"></span>
                         </a>
                         <a href="delete_order.php?id=<?php echo (int)$order['id'];?>" onClick="return confirm('Are you sure you want to delete?')" class="btn btn-xs btn-danger" data-toggle="tooltip" title="Remove">
                           <span class="glyphicon glyphicon-trash"></span>
@@ -90,17 +95,6 @@ $all_orders = find_all('orders')
           </table>
        </div>
     </div>
-
-<?php
-/**
- * print "<pre>";
- * print_r($all_orders);
- * print "</pre>\n";
- *
- */
-?>
-
-
     </div>
    </div>
   </div>
