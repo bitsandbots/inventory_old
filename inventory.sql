@@ -73,7 +73,8 @@ CREATE TABLE IF NOT EXISTS `media` (
   `file_type` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
-
+INSERT INTO `media` (`id`, `file_name`, `file_type`) VALUES
+(1, 'no-image.png', 'image/png');
 -- --------------------------------------------------------
 
 --
@@ -278,7 +279,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
 -- AUTO_INCREMENT for table `media`
 --
 ALTER TABLE `media`
-MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+MODIFY `id` int(11) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `orders`
 --
