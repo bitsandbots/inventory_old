@@ -15,10 +15,6 @@ $all_stock = find_all('stock');
 $all_products = find_all('products');
 
 ?>
-
-<!--     *************************     -->
-
-
 <?php include_once 'layouts/header.php'; ?>
   <div class="row">
      <div class="col-md-12">
@@ -26,21 +22,21 @@ $all_products = find_all('products');
      </div>
   </div>
 
-    <div class="col-md-9">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <strong>
-          <span class="glyphicon glyphicon-th"></span>
-<!--     *************************     -->
-          <span>Inventory Log</span>
-<!--     *************************     -->
-       </strong>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <strong>
+            <span class="glyphicon glyphicon-th"></span>
+            <span>Inventory Log</span>
+          </strong>
           <div class="pull-right">
             <a href="add_stock.php" class="btn btn-primary">Add Stock</a>
           </div>
-      </div>
+        </div>
         <div class="panel-body">
-          <table class="table table-bordered table-striped table-hover">
+
+          <table class="table table-bordered table-striped">
             <thead>
                 <tr>
                     <th class="text-center" style="width: 50px;">Product</th>

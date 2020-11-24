@@ -116,15 +116,7 @@ if (isset($_POST['edit_stock'])) {
        </form>
        </div>
      </div>
-
-
-      <?php
-print "<pre>";
-print_r($stock);
-print "</pre>\n";
-?>
-
-   </div>
+ </div>
 </div>
 
 <?php include_once 'layouts/footer.php'; ?>
