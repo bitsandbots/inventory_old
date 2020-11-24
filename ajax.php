@@ -23,7 +23,8 @@ if (isset($_POST['product_name']) && strlen($_POST['product_name'])) {
 		endforeach;
 	} else {
 
-		$html .= '<li onClick=\"fill(\''.addslashes().'\')\" class=\"list-group-item\">';
+		//$html .= '<li onClick=\"fill(\''.addslashes().'\')\" class=\"list-group-item\">';
+		$html .= "<li class=\"list-group-item\">";
 		$html .= 'Not found';
 		$html .= "</li>";
 
