@@ -204,7 +204,7 @@ ALTER TABLE `categories`
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`);
-
+  ADD UNIQUE KEY `name` (`name`);
 
 --
 -- Indexes for table `log`
