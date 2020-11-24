@@ -12,7 +12,11 @@ require_once 'includes/load.php';
 page_require_level(1);
 
 $selected_product = 0;
-$selected_product = (int)$_GET['id'];
+if ( isset($_GET['id'] ) )
+{
+	$selected_product = (int)$_GET['id'];
+}
+
 
 $all_stock = find_all('stock');
 $all_products = find_all('products');
