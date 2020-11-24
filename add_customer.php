@@ -80,7 +80,7 @@ if (isset($_POST['add_customer'])) {
 </div>
 <!--     *************************     -->
   <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-12">
       <div class="panel panel-default">
         <div class="panel-heading">
           <strong>
@@ -150,6 +150,7 @@ if (isset($_POST['add_customer'])) {
 
                </div>
               </div>
+	  <div class="pull-right">
               <button type="submit" name="add_customer" class="btn btn-info">Add</button>
           </form>
          </div>

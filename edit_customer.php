@@ -92,7 +92,7 @@ if (isset($_POST['edit_customer'])) {
          </strong>
         </div>
         <div class="panel-body">
-         <div class="col-md-7">
+         <div class="col-md-12">
            <form method="post" action="edit_customer.php?id=<?php echo (int)$customer['id'] ?>">
               <div class="form-group">
                 <div class="input-group">
@@ -150,7 +150,8 @@ if (isset($_POST['edit_customer'])) {
 
                </div>
               </div>
-              <button type="submit" name="edit_customer" class="btn btn-danger">Update</button>
+	  <div class="pull-right">
+              <button type="submit" name="edit_customer" class="btn btn-info">Update</button>
           </form>
          </div>
         </div>

@@ -27,6 +27,25 @@ if (isset($_POST['edit_order'])) {
 	if ($date == 0 ) { $date    = make_date(); }
 
 	if (empty($errors)) {
+
+
+	if ( ! find_by_name('customers',$customer) )
+	{
+		$query  = "INSERT INTO customers (";
+		//$query .=" name,address,postcode,telephone,email,paymethod";
+		$query .=" name,paymethod";
+		$query .=") VALUES (";
+		//$query .=" '{$customer}', '{$c_address}', '{$c_postcode}', '{$c_telephone}', '{$c_email}', '{$paymethod}'";
+		$query .=" '{$customer}', '{$paymethod}'";
+		$query .=")";
+		$result = $db->query($query);
+		if ($result && $db->affected_rows() === 1) {
+			$session->msg('s', "customer added ");
+		} else {
+			$session->msg('d', ' Sorry failed to updated!');
+		}
+	}	
+
 		$sql = "UPDATE orders SET";
 		$sql .= " customer='{$customer}', paymethod='{$paymethod}', notes='{$notes}', date='{$date}'";
 		$sql .= " WHERE id='{$order['id']}'";
