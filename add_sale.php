@@ -60,7 +60,7 @@ if (isset($_POST['add_sale'])) {
             <span class="input-group-btn">
               <button type="submit" class="btn btn-primary">Find It</button>
             </span>
-            <input type="text" id="sug_input" class="form-control" name="title"  placeholder="Search for product name">
+            <input type="text" id="sug_input" class="form-control" name="title"  placeholder="Search by Product Name">
          </div>
          <div id="result" class="list-group"></div>
         </div>
@@ -85,7 +85,7 @@ if (isset($_POST['add_sale'])) {
       <div class="panel-heading clearfix">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>Sale Edit</span>
+          <span>Add Sale</span>
        </strong>
       </div>
       <div class="panel-body">

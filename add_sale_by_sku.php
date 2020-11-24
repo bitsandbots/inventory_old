@@ -6,7 +6,7 @@
  */
 
 
-$page_title = 'Add Sale';
+$page_title = 'Add Sale by SKU';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(3);
@@ -60,7 +60,7 @@ if (isset($_POST['add_sale'])) {
             <span class="input-group-btn">
               <button type="submit" class="btn btn-primary">Find It</button>
             </span>
-            <input type="text" id="sug_sku_input" class="form-control" name="sku"  placeholder="Search for product SKU">
+            <input type="text" id="sug_sku_input" class="form-control" name="sku"  placeholder="Search by Product SKU">
          </div>
          <div id="result" class="list-group"></div>
         </div>
@@ -85,7 +85,7 @@ if (isset($_POST['add_sale'])) {
       <div class="panel-heading clearfix">
         <strong>
           <span class="glyphicon glyphicon-th"></span>
-          <span>Sale Edit</span>
+          <span>Add Sale</span>
        </strong>
       </div>
       <div class="panel-body">

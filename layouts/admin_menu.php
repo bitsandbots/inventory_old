@@ -34,8 +34,8 @@
       <span>Products</span>
     </a>
     <ul class="nav submenu">
-       <li><a href="products.php">Manage products</a> </li>
-       <li><a href="add_product.php">Add product</a> </li>
+       <li><a href="products.php">Manage Products</a> </li>
+       <li><a href="add_product.php">Add Product</a> </li>
    </ul>
   </li>
   <li>
@@ -50,12 +50,12 @@
        <span>Sales</span>
       </a>
       <ul class="nav submenu">
-         <li><a href="customers.php">Manage Customers</a> </li>
-         <li><a href="orders.php">Manage Orders</a> </li>
          <li><a href="add_order.php">Add Order</a> </li>
+         <li><a href="orders.php">Manage Orders</a> </li>
+         <li><a href="customers.php">Manage Customers</a> </li>
          <li><a href="sales.php">Manage Sales</a> </li>
-         <li><a href="add_sale.php">Add Sale</a> </li>
-         <li><a href="add_sale_by_sku.php">Add Sale By SKU</a> </li>
+         <li><a href="add_sale.php">Add Sale by Product Name</a> </li>
+         <li><a href="add_sale_by_sku.php">Add Sale by SKU</a> </li>
      </ul>
   </li>
   <li>
@@ -65,9 +65,9 @@
       </a>
       <ul class="nav submenu">
         <li><a href="stock_report.php">Stock Report </a></li>
-        <li><a href="sales_report.php">Sales by dates </a></li>
-        <li><a href="monthly_sales.php">Monthly sales</a></li>
-        <li><a href="daily_sales.php">Daily sales</a> </li>
+        <li><a href="sales_report.php">Sales by Dates </a></li>
+        <li><a href="monthly_sales.php">Monthly Sales</a></li>
+        <li><a href="daily_sales.php">Daily Sales</a> </li>
       </ul>
   </li>
 </ul>
