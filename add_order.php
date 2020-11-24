@@ -64,7 +64,7 @@ if (isset($_POST['add_order'])) {
 <div class="row">
   <div class="col-md-6">
     <?php echo display_msg($msg); ?>
-    <form method="post" action="ajax_sku.php" autocomplete="off" id="sug-customer-form">
+    <form method="post" action="ajax_customer.php" autocomplete="off" id="sug-customer-form">
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-btn">
