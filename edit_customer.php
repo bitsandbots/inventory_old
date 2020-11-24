@@ -55,6 +55,8 @@ if (isset($_POST['edit_customer'])) {
 			$c_paymethod  = remove_junk($db->escape($_POST['customer-paymethod']));
 		}
 
+	if ( ! find_by_name('customers',$c_name) )
+	{
 
 		$query   = "UPDATE customers SET";
 		$query  .=" name ='{$c_name}', address ='{$c_address}', postcode ='{$c_postcode}', telephone ='{$c_telephone}', email ='{$c_email}',";
@@ -62,12 +64,18 @@ if (isset($_POST['edit_customer'])) {
 		$query  .=" WHERE id ='{$customer['id']}'";
 		$result = $db->query($query);
 		if ($result && $db->affected_rows() === 1) {
-			$session->msg('s', "customer updated ");
+			$session->msg('s', 'Customer Updated!');
 			redirect('customers.php', false);
 		} else {
-			$session->msg('d', ' Sorry failed to updated!');
+			$session->msg('d', 'Failed to Update!');
 			redirect('edit_customer.php?id='.$customer['id'], false);
 		}
+
+	} else {
+			$session->msg('d', 'Customer Already Exists!');
+			redirect('edit_customer.php?id='.$customer['id'], false);
+	}
+
 
 	} else {
 		$session->msg("d", $errors);

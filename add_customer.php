@@ -47,7 +47,8 @@ if (isset($_POST['add_customer'])) {
 			$c_paymethod  = remove_junk($db->escape($_POST['customer-paymethod']));
 		}
 
-	
+	if ( ! find_by_name('customers',$c_name) )
+	{	
 		$query  = "INSERT INTO customers (";
 		$query .=" name,address,postcode,telephone,email,paymethod";
 		$query .=") VALUES (";
@@ -55,12 +56,17 @@ if (isset($_POST['add_customer'])) {
 		$query .=")";
 		$result = $db->query($query);
 		if ($result && $db->affected_rows() === 1) {
-			$session->msg('s', "customer added ");
+			$session->msg('s', 'Customer Added!');
 			redirect('customers.php', false);
 		} else {
-			$session->msg('d', ' Sorry failed to updated!');
+			$session->msg('d', 'Failure to Add!');
 			redirect('customers.php', false);
 		}
+	} else {
+			$session->msg('d', 'Customer Already Added!');
+			redirect('customers.php', false);
+	}
+
 
 	} else {
 		$session->msg("d", $errors);
