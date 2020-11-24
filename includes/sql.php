@@ -331,7 +331,30 @@ function tableExists($table){
     return find_by_sql($sql);
   }
 
+  /*--------------------------------------------------------------*/
+  /* Function for Finding by customer name
+  /* Request coming from ajax_customer.php for auto suggest
+  /*--------------------------------------------------------------*/
 
+   function find_customer_by_name($customer_name){
+     global $db;
+     $customer = remove_junk($db->escape($customer_name));
+     $sql = "SELECT name FROM customers WHERE name like '%$customer%' LIMIT 5";
+     $result = find_by_sql($sql);
+     return $result;
+   }
+
+  /*--------------------------------------------------------------*/
+  /* Function for Finding all product info by product title
+  /* Request coming from ajax_customer.php
+  /*--------------------------------------------------------------*/
+  function find_all_customer_info_by_name($customer_name){
+    global $db;
+    $sql  = "SELECT * FROM customers ";
+    $sql .= " WHERE name ='{$customer_name}'";
+    $sql .=" LIMIT 1";
+    return find_by_sql($sql);
+  }
 
   /*--------------------------------------------------------------*/
   /* Function for Finding all product by category

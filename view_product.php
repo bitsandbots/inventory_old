@@ -124,8 +124,8 @@ foreach ($all_categories as $category ) {
                 <td class="text-center"> <?php echo remove_junk($product['location']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['sku']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['quantity']); ?></td>
-                <td class="text-center"> <?php echo formatcurrency( remove_junk($product['buy_price'], $CURRENCY_CODE)); ?></td>
-                <td class="text-center"> <?php echo formatcurrency( remove_junk($product['sale_price'], $CURRENCY_CODE)); ?></td>
+                <td class="text-center"> <?php echo formatcurrency( $product['buy_price'], $CURRENCY_CODE); ?></td>
+                <td class="text-center"> <?php echo formatcurrency( $product['sale_price'], $CURRENCY_CODE); ?></td>
                 <td class="text-center"> <?php echo read_date($product['date']); ?></td>
 <!--     *************************     -->
                 <td class="text-center">

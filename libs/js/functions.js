@@ -136,6 +136,74 @@ function suggestion_sku() {
       e.preventDefault();
   });
 
+function suggestion_customer() {
+
+     $('#sug_customer_input').keyup(function(e) {
+
+         var formData = {
+             'customer_name' : $('input[name=customer_name]').val()
+         };
+
+         if(formData['customer_name'].length >= 1){
+
+           // process the form
+           $.ajax({
+               type        : 'POST',
+               url         : 'ajax_customer.php',
+               data        : formData,
+               dataType    : 'json',
+               encode      : true
+           })
+               .done(function(data) {
+                   //console.log(data);
+                   $('#result').html(data).fadeIn();
+                   $('#result li').click(function() {
+
+                     $('#sug_customer_input').val($(this).text());
+                     $('#result').fadeOut(500);
+
+                   });
+
+                   $("#sug_customer_input").blur(function(){
+                     $("#result").fadeOut(500);
+                   });
+
+               });
+
+         } else {
+
+           $("#result").hide();
+
+         };
+
+         e.preventDefault();
+     });
+
+ }
+  $('#sug-customer-form').submit(function(e) {
+      var formData = {
+          'c_name' : $('input[name=customer_name]').val()
+      };
+        // process the form
+        $.ajax({
+            type        : 'POST',
+            url         : 'ajax_customer.php',
+            data        : formData,
+            dataType    : 'json',
+            encode      : true
+        })
+            .done(function(data) {
+                //console.log(data);
+                $('#customer_info').html(data).show();
+                total();
+                $('.datePicker').datepicker('update', new Date());
+
+            }).fail(function() {
+                $('#customer_info').html(data).show();
+            });
+      e.preventDefault();
+  });
+
 
   function total(){
     $('#product_info input').change(function(e)  {
@@ -158,6 +226,8 @@ function suggestion_sku() {
     suggestion_name();
     //suggestion for finding product names
     suggestion_sku();
+    //suggestion for finding customer names
+    suggestion_customer();
     // Callculate total ammont
     total();
 
