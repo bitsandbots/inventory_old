@@ -24,7 +24,7 @@ if (isset($_POST['add_sale'])) {
 		$product = find_by_id("products", $p_id);
 		if ( (int)$product['quantity'] < $s_qty ) {
 			$session->msg('d', ' Insufficient Quantity for Sale!');
-			redirect('add_sale.php', false);
+			redirect('add_sale_by_sku.php', false);
 		}
 		$s_total   = $db->escape($_POST['total']);
 		$s_date    = make_date();
@@ -38,14 +38,14 @@ if (isset($_POST['add_sale'])) {
 		if ($db->query($sql)) {
 			decrease_product_qty($s_qty, $p_id);
 			$session->msg('s', "Sale added. ");
-			redirect('add_sale.php', false);
+			redirect('add_sale_by_sku.php', false);
 		} else {
 			$session->msg('d', ' Sorry failed to add!');
-			redirect('add_sale.php', false);
+			redirect('add_sale_by_sku.php', false);
 		}
 	} else {
 		$session->msg("d", $errors);
-		redirect('add_sale.php', false);
+		redirect('add_sale_by_sku.php', false);
 	}
 }
 
