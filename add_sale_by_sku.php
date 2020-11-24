@@ -58,9 +58,9 @@ if (isset($_POST['add_sale'])) {
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-primary">Find It</button>
+              <button type="submit" class="btn btn-primary">Search</button>
             </span>
-            <input type="text" id="sug_sku_input" class="form-control" name="sku"  placeholder="Search by Product SKU">
+            <input type="text" id="sug_sku_input" class="form-control" name="sku"  placeholder="Product SKU">
          </div>
          <div id="result" class="list-group"></div>
         </div>

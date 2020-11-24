@@ -105,10 +105,10 @@ if (isset($_POST['submit'])) {
            <tr>
               <td class=""><?php echo remove_junk($result['date']);?></td>
               <td class="text-center"><?php echo remove_junk(ucfirst($result['name']));?></td>
-              <td class="text-right"><?php echo remove_junk($result['buy_price']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['sale_price']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['total_sales']);?></td>
-              <td class="text-right"><?php echo remove_junk($result['total_saleing_price']);?></td>
+              <td class="text-right"><?php echo formatcurrency($result['buy_price'], $CURRENCY_CODE);?></td>
+              <td class="text-right"><?php echo formatcurrency($result['sale_price'], $CURRENCY_CODE);?></td>
+              <td class="text-right"><?php echo formatcurrency($result['total_sales'], $CURRENCY_CODE);?></td>
+              <td class="text-right"><?php echo formatcurrency($result['total_saleing_price'], $CURRENCY_CODE);?></td>
           </tr>
         <?php endforeach; ?>
         </tbody>

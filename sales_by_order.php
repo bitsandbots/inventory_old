@@ -135,7 +135,7 @@ $order = find_by_id("orders", $order_id);
                <td class="text-center"><?php echo $sale['sku']; ?></td>
                <td class="text-center"><?php echo $sale['location']; ?></td>
                <td class="text-center"><?php echo (int)$sale['qty']; ?></td>
-               <td class="text-center"><?php echo remove_junk($sale['price']); ?></td>
+               <td class="text-center"><?php echo formatcurrency($sale['price'], $CURRENCY_CODE); ?></td>
                <td class="text-center">
                   <div class="btn-group">
                      <a href="edit_sale.php?id=<?php echo (int)$sale['id'];?>" class="btn btn-warning btn-xs"  title="Edit" data-toggle="tooltip">

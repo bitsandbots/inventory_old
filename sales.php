@@ -30,7 +30,7 @@ page_require_level(3);
             <span>All Sales</span>
           </strong>
           <div class="pull-right">
-            <a href="add_sale.php" class="btn btn-primary">Add sale</a>
+            <a href="add_sale.php" class="btn btn-primary">Add Sale</a>
           </div>
         </div>
         <div class="panel-body">
@@ -39,7 +39,6 @@ page_require_level(3);
           <table class="table table-bordered table-striped">
             <thead>
               <tr>
-                <th class="text-center" style="width: 50px;">#</th>
                 <th class="text-center" style="width: 15%;">Order</th>
                 <th> Product name </th>
                 <th class="text-center" style="width: 15%;"> Quantity</th>
@@ -55,11 +54,10 @@ page_require_level(3);
              <?php foreach ($sales as $sale):?>
 
              <tr>
-               <td class="text-center"><?php echo count_id();?></td>
                <td class="text-center"><?php echo (int)$sale['order_id']; ?></td>
                <td><?php echo remove_junk($sale['name']); ?></td>
                <td class="text-center"><?php echo (int)$sale['qty']; ?></td>
-               <td class="text-center"><?php echo remove_junk($sale['price']); ?></td>
+               <td class="text-center"><?php echo formatcurrency($sale['price'], $CURRENCY_CODE); ?></td>
                <td class="text-center"><?php echo $sale['date']; ?></td>
                <td class="text-center">
                   <div class="btn-group">
@@ -81,13 +79,6 @@ page_require_level(3);
 
         </div>
       </div>
-
-<?php
-// print "<pre>";
-// print_r($sales);
-// print "</pre>\n";
-
-?>
 
     </div>
   </div>
