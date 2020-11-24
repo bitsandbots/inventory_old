@@ -55,7 +55,7 @@ if (isset($_POST['edit_customer'])) {
 			$c_paymethod  = remove_junk($db->escape($_POST['customer-paymethod']));
 		}
 
-	if ( ! find_by_name('customers',$c_name) )
+	if ( find_by_name('customers',$c_name) )
 	{
 
 		$query   = "UPDATE customers SET";
@@ -72,7 +72,7 @@ if (isset($_POST['edit_customer'])) {
 		}
 
 	} else {
-			$session->msg('d', 'Customer Already Exists!');
+			$session->msg('d', 'Failed to Update, Please Add!');
 			redirect('edit_customer.php?id='.$customer['id'], false);
 	}
 
