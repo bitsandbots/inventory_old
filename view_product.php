@@ -11,13 +11,21 @@ require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(2);
 
+if ( isset( $_GET['id'] ) ) 
+{
 $product = find_by_id('products', (int)$_GET['id']);
 $all_categories = find_all('categories');
 $all_photo = find_all('media');
 if ( ! $product ) {
 	$session->msg("d", "Missing product id.");
-	//  redirect('products.php');
+	redirect('products.php');
 }
+} else {
+    	$session->msg("d", "Missing product id.");
+	redirect('products.php');
+}
+
+
 ?>
 
 <?php include_once 'layouts/header.php'; ?>
@@ -116,8 +124,8 @@ foreach ($all_categories as $category ) {
                 <td class="text-center"> <?php echo remove_junk($product['location']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['sku']); ?></td>
                 <td class="text-center"> <?php echo remove_junk($product['quantity']); ?></td>
-                <td class="text-center"> <?php echo remove_junk($product['buy_price']); ?></td>
-                <td class="text-center"> <?php echo remove_junk($product['sale_price']); ?></td>
+                <td class="text-center"> <?php echo formatcurrency( remove_junk($product['buy_price'], $CURRENCY_CODE)); ?></td>
+                <td class="text-center"> <?php echo formatcurrency( remove_junk($product['sale_price'], $CURRENCY_CODE)); ?></td>
                 <td class="text-center"> <?php echo read_date($product['date']); ?></td>
 <!--     *************************     -->
                 <td class="text-center">
