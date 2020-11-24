@@ -6,7 +6,7 @@
  */
 
 
-$page_title = 'Edit category';
+$page_title = 'Edit Order';
 require_once 'includes/load.php';
 // Checkin What level user has permission to view this page
 page_require_level(2);
@@ -103,12 +103,13 @@ if (isset($_POST['edit_order'])) {
            <input type="date" class="form-control datepicker" name="date" data-date-format="" value="<?php echo remove_junk($order['date']); ?>">
            </div>
 
-           <button type="submit" name="edit_order" class="btn btn-primary">Update order</button>
-       </form>
-       </div>
-     </div>
-
-
+         <div class="pull-right">
+              <button type="submit" name="edit_order" class="btn btn-info">Update</button>
+          </form>
+         </div>
+        </div>
+      </div>
+  </div>
 <?php
 // print "<pre>";
 // print_r($order);

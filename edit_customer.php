@@ -84,7 +84,8 @@ if (isset($_POST['edit_customer'])) {
   </div>
 </div>
   <div class="row">
-      <div class="panel panel-default">
+         <div class="col-md-7">
+	<div class="panel panel-default">
         <div class="panel-heading">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
@@ -92,7 +93,7 @@ if (isset($_POST['edit_customer'])) {
          </strong>
         </div>
         <div class="panel-body">
-         <div class="col-md-12">
+         <div class="col-md-7">
            <form method="post" action="edit_customer.php?id=<?php echo (int)$customer['id'] ?>">
               <div class="form-group">
                 <div class="input-group">

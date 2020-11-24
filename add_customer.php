@@ -78,20 +78,17 @@ if (isset($_POST['add_customer'])) {
     <?php echo display_msg($msg); ?>
   </div>
 </div>
-<!--     *************************     -->
   <div class="row">
-  <div class="col-md-12">
-      <div class="panel panel-default">
+	<div class="col-md-7">
+	<div class="panel panel-default">
         <div class="panel-heading">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
-<!--     *************************     -->
-            <span>Add New customer</span>
-<!--     *************************     -->
+            <span>Add New Customer</span>
          </strong>
         </div>
         <div class="panel-body">
-         <div class="col-md-12">
+         <div class="col-md-7">
 <!--     *************************     -->
           <form method="post" action="add_customer.php" class="clearfix">
 <!--     *************************     -->
