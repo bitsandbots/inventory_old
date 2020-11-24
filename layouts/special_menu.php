@@ -24,7 +24,7 @@
   </li>
   <li>
     <a href="categories.php" >
-      <i class="glyphicon glyphicon-indent-left"></i>
+      <i class="glyphicon glyphicon-list"></i>
       <span>Categories</span>
     </a>
   </li>
@@ -46,7 +46,7 @@
   </li>
   <li>
     <a href="#" class="submenu-toggle">
-      <i class="glyphicon glyphicon-th-list"></i>
+      <i class="glyphicon glyphicon-piggy-bank"></i>
        <span>Sales</span>
       </a>
       <ul class="nav submenu">

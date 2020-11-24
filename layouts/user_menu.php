@@ -23,7 +23,7 @@
   </li>
   <li>
     <a href="#" class="submenu-toggle">
-      <i class="glyphicon glyphicon-th-list"></i>
+      <i class="glyphicon glyphicon-piggy-bank"></i>
        <span>Sales</span>
       </a>
       <ul class="nav submenu">
