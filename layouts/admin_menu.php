@@ -55,6 +55,7 @@
          <li><a href="add_order.php">Add Order</a> </li>
          <li><a href="sales.php">Manage Sales</a> </li>
          <li><a href="add_sale.php">Add Sale</a> </li>
+         <li><a href="add_sale_by_sku.php">Add Sale By SKU</a> </li>
      </ul>
   </li>
   <li>

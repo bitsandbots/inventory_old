@@ -148,8 +148,6 @@ if (isset($_POST['add_customer'])) {
                     </select>
            </div>
 
-               </div>
-              </div>
 	  <div class="pull-right">
               <button type="submit" name="add_customer" class="btn btn-info">Add</button>
           </form>

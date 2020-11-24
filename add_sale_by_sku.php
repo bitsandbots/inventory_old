@@ -89,7 +89,7 @@ if (isset($_POST['add_sale'])) {
        </strong>
       </div>
       <div class="panel-body">
-        <form method="post" action="add_sale.php">
+        <form method="post" action="add_sale_by_sku.php">
          <table class="table table-bordered">
            <thead>
             <th class="text-center" style="width: 100px;"> Item </th>
