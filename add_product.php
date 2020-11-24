@@ -191,7 +191,7 @@ if (isset($_POST['add_product'])) {
                  <div class="col-md-4">
                    <div class="input-group">
                      <span class="input-group-addon">
-                       <i class="glyphicon glyphicon-usd"></i>
+                       <i class="glyphicon glyphicon-piggy-bank"></i>
                      </span>
                      <input type="number" min="0" step="any" class="form-control" name="cost-price" placeholder="Cost Price">
                   </div>
@@ -200,9 +200,9 @@ if (isset($_POST['add_product'])) {
                   <div class="col-md-4">
                     <div class="input-group">
                       <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-usd"></i>
+                        <i class="glyphicon glyphicon-piggy-bank"></i>
                       </span>
-                      <input type="number" min="0" step="any" class="form-control" name="sale-price" placeholder="Selling Price">
+                      <input type="number" min="0" step="any" class="form-control" name="sale-price" placeholder="Sell Price">
                    </div>
                   </div>
 <!--     *************************     -->
@@ -211,7 +211,7 @@ if (isset($_POST['add_product'])) {
               </div>
 <!--     *************************     -->
          <div class="pull-right">
-              <button type="submit" name="add_product" class="btn btn-danger">Add product</button>
+              <button type="submit" name="add_product" class="btn btn-info">Add Product</button>
          </div>
 
 <!--     *************************     -->

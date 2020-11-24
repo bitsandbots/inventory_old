@@ -87,7 +87,7 @@ if (isset($_POST['product'])) {
         <div class="panel-heading">
           <strong>
             <span class="glyphicon glyphicon-th"></span>
-            <span>Add New Product</span>
+            <span>Edit Product</span>
          </strong>
         </div>
         <div class="panel-body">
@@ -167,10 +167,10 @@ if (isset($_POST['product'])) {
                  </div>
                  <div class="col-md-4">
                   <div class="form-group">
-                    <label for="qty">cost price</label>
+                    <label for="qty">Cost Price</label>
                     <div class="input-group">
                       <span class="input-group-addon">
-                        <i class="glyphicon glyphicon-usd"></i>
+                        <i class="glyphicon glyphicon-piggy-bank"></i>
                       </span>
                       <input type="number" min="0" step="any" class="form-control" name="cost-price" value="<?php echo remove_junk($product['buy_price']);?>">
                    </div>
@@ -178,18 +178,18 @@ if (isset($_POST['product'])) {
                  </div>
                   <div class="col-md-4">
                    <div class="form-group">
-                     <label for="qty">Selling price</label>
+                     <label for="qty">Sell Price</label>
                      <div class="input-group">
                        <span class="input-group-addon">
-                         <i class="glyphicon glyphicon-usd"></i>
+                         <i class="glyphicon glyphicon-piggy-bank"></i>
                        </span>
                        <input type="number" min="0" step="any" class="form-control" name="sale-price" value="<?php echo remove_junk($product['sale_price']);?>">
                     </div>
                    </div>
                   </div>
                </div>
-              </div>
-              <button type="submit" name="product" class="btn btn-danger">Update</button>
+         <div class="pull-right">
+              <button type="submit" name="product" class="btn btn-info">Update</button>
           </form>
          </div>
         </div>

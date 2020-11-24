@@ -87,7 +87,7 @@ function closePanel()
        <div class="panel panel-box clearfix">
          <div class="panel-icon pull-left bg-yellow">
 
-          <i class="glyphicon glyphicon-usd"></i>
+          <i class="glyphicon glyphicon-piggy-bank"></i>
 
         </div>
         <div class="panel-value pull-right">
