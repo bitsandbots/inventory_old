@@ -32,6 +32,7 @@
       </a>
       <ul class="nav submenu">
          <li><a href="add_order.php">Add Order</a> </li>
+         <li><a href="add_order_by_customer.php">Add Order by Customer</a> </li>
          <li><a href="orders.php">Manage Orders</a> </li>
          <li><a href="sales.php">Manage Sales</a> </li>
          <li><a href="add_sale.php">Add Sale by Product Name</a> </li>

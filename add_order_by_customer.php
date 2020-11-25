@@ -61,47 +61,60 @@ if (isset($_POST['add_order'])) {
 ?>
 
 <?php include_once 'layouts/header.php'; ?>
-
-<div class="login-page">
-    <div class="text-center">
-<!--     *************************     -->
-       <h2>Add Order</h3>
-       <h3>#<?php echo $new_order_id;?></h3>
-<!--     *************************     -->
-     </div>
-     <?php echo display_msg($msg); ?>
-
-      <form method="post" action="" class="clearfix">
-<!--     *************************     -->
+<div class="row">
+  <div class="col-md-6">
+    <?php echo display_msg($msg); ?>
+    <form method="post" action="ajax_customer.php" autocomplete="off" id="sug-customer-form">
         <div class="form-group">
-        </div>
-
-        <div class="form-group">
-              <label for="name" class="control-label">Customer Name</label>
-              <input type="text" class="form-control" name="customer_name" value="" placeholder="Customer">
-        </div>
-
-           <div class="form-group">
-                    <select class="form-control" name="paymethod">
-                      <option value="">Select Payment Method</option>
-                      <option value="Cash">Cash</option>
-                      <option value="Check">Check</option>
-                      <option value="Credit">Credit</option>
-                      <option value="Charge">Charge to Account</option>
-                    </select>
-           </div>
-
-           <div class="form-group">
-               <input type="text" class="form-control" name="notes" value="" placeholder="Notes">
-           </div>
-
-<!--     *************************     -->
-        <div class="form-group clearfix">
-         <div class="pull-right">
-                <button type="submit" name="add_order" class="btn btn-info">Start Order</button>
-        </div>
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary">Search </button>
+            </span>
+            <input type="text" id="sug_customer_input" class="form-control" name="customer_name" value="" placeholder="Customer Name">
+         </div>
+         <div id="result" class="list-group"></div>
         </div>
     </form>
+  </div>
+
+  <div class="col-md-6">
+    <div class="panel">
+      <div class="jumbotron text-center">
+<h3>Order #<?php echo $new_order_id; ?></h3>
+      </div>
+    </div>
 </div>
 
-<?php include_once('layouts/footer.php'); ?>
+
+</div>
+<div class="row">
+
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <strong>
+          <span class="glyphicon glyphicon-th"></span>
+          <span>Select Customer</span>
+       </strong>
+      </div>
+      <div class="panel-body">
+        <form method="post" action="add_order.php">
+         <table class="table table-bordered">
+           <thead>
+                <tr>
+                    <th class="text-center" style="width: 100px;">Customer</th>
+                    <th class="text-center" style="width: 100px;">Address</th>
+                    <th class="text-center" style="width: 50px;">Postal Code</th>
+                    <th class="text-center" style="width: 50px;">Pay Method</th>
+                    <th class="text-center" style="width: 50px;">Actions</th>
+                </tr>
+           </thead>
+           <tbody  id="customer_info"> </tbody>
+         </table>
+       </form>
+      </div>
+    </div>
+  </div>
+
+</div>
+<?php include_once 'layouts/footer.php'; ?>
