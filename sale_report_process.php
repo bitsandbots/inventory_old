@@ -107,7 +107,7 @@ if (isset($_POST['submit'])) {
               <td class="text-center"><?php echo remove_junk(ucfirst($result['name']));?></td>
               <td class="text-right"><?php echo formatcurrency($result['buy_price'], $CURRENCY_CODE);?></td>
               <td class="text-right"><?php echo formatcurrency($result['sale_price'], $CURRENCY_CODE);?></td>
-              <td class="text-right"><?php echo formatcurrency($result['total_sales'], $CURRENCY_CODE);?></td>
+              <td class="text-right"><?php echo remove_junk($result['total_sales']);?></td>
               <td class="text-right"><?php echo formatcurrency($result['total_saleing_price'], $CURRENCY_CODE);?></td>
           </tr>
         <?php endforeach; ?>

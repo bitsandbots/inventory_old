@@ -51,7 +51,7 @@ if (isset($_POST['c_name']) && strlen($_POST['c_name'])) {
 			$html .= "<td class=\"text-center\">";
 			$html .= "{$result['postcode']}";
 			$html  .= "</td>";
-			$html  .= "<td>";
+			$html .= "<td class=\"text-center\">";
 			$html  .= "<select class=\"form-control\" name=\"paymethod\">";
             $html  .= "<option value=\"\">Select Payment Method</option>";
             $html  .= "<option value=\"Cash\"";
@@ -68,7 +68,7 @@ if (isset($_POST['c_name']) && strlen($_POST['c_name'])) {
             $html  .= ">Charge to Account</option>";
             $html  .= "</select>";
 			$html  .= "</td>";
-			$html  .= "<td>";
+			$html .= "<td class=\"text-center\">";
 			$html  .= "<button type=\"submit\" name=\"add_order\" class=\"btn btn-primary\">Start Order</button>";
 			$html  .= "</td>";
 			$html  .= "</tr>";
