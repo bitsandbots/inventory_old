@@ -12,20 +12,18 @@ if (!$session->isUserLoggedIn(true)) { redirect('index.php', false);}
 
 <?php
 // Auto suggestion
-$html = '';
+$html = "";
 if (isset($_POST['product_name']) && strlen($_POST['product_name'])) {
 	$products = find_product_by_title($_POST['product_name']);
 	if ($products) {
 		foreach ($products as $product):
-			$html .= "<li class=\"list-group-item\">";
+		$html .= "<li class=\"list-group-item\">";
 		$html .= $product['name'];
 		$html .= "</li>";
 		endforeach;
 	} else {
-
-		//$html .= '<li onClick=\"fill(\''.addslashes().'\')\" class=\"list-group-item\">';
-		$html .= "<li class=\"list-group-item\">";
-		$html .= 'Not found';
+		$html = "<li class=\"list-group-item\">";
+		$html .= "Not found";
 		$html .= "</li>";
 
 	}
@@ -70,7 +68,7 @@ if (isset($_POST['p_name']) && strlen($_POST['p_name'])) {
 
 		}
 	} else {
-		$html ='<tr><td>product name not resgister in database</td></tr>';
+		$html ="<tr><td colspan=\"8\">Product Name Not Registered!</td></tr>";
 	}
 
 	echo json_encode($html);

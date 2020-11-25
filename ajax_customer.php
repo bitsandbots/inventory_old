@@ -12,7 +12,7 @@ if (!$session->isUserLoggedIn(true)) { redirect('index.php', false);}
 
 <?php
 // Auto suggestion
-$html = '';
+$html = "";
 if (isset($_POST['customer_name']) && strlen($_POST['customer_name'])) {
 	$customers = find_customer_by_name($_POST['customer_name']);
 	if ($customers) {
@@ -22,10 +22,8 @@ if (isset($_POST['customer_name']) && strlen($_POST['customer_name'])) {
 		$html .= "</li>";
 		endforeach;
 	} else {
-
-		//$html .= '<li onClick=\"fill(\''.addslashes().'\')\" class=\"list-group-item\">';
-		$html .= "<li class=\"list-group-item\">";
-		$html .= 'Not found';
+		$html = "<li class=\"list-group-item\">";
+		$html .= "Not found";
 		$html .= "</li>";
 
 	}
