@@ -75,7 +75,12 @@ if (isset($_POST['c_name']) && strlen($_POST['c_name'])) {
 
 		}
 	} else {
-		$html ='<tr><td>product name not resgister in database</td></tr>';
+			$html   = "<tr>";
+			$html  .= "<td colspan=\"4\">Customer Not Registered!</td>";
+			$html  .= "<td class=\"text-center\"><strong>";
+			$html  .= "<a href=\"add_customer.php\">Add Customer</a>";
+			$html  .= "</strong></td>";
+			$html  .= "</tr>";
 	}
 
 	echo json_encode($html);

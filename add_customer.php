@@ -103,7 +103,7 @@ if (isset($_POST['add_customer'])) {
                   <span class="input-group-addon">
                    <i class="glyphicon glyphicon-user"></i>
                   </span>
-                  <input type="text" class="form-control" name="customer-name" value="">
+                  <input type="text" class="form-control" name="customer-name" value="" placeholder="Customer Name">
                </div>
               </div>
 
