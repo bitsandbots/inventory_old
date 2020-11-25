@@ -16,7 +16,7 @@
   <body>
   <?php  if ($session->isUserLoggedIn(true)): ?>
     <header id="header">
-      <div class="logo pull-left">MPFS Inventory
+      <div class="logo pull-left">My Inventory
 <!--
       <img src="/images/hydroMazing_trans_logo.gif" height="60" width="140">
 -->

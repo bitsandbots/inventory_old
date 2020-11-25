@@ -108,6 +108,8 @@ if (isset($_POST['edit_customer'])) {
                   <span class="input-group-addon">
                    <i class="glyphicon glyphicon-user"></i>
                   </span>
+		  &nbsp;
+		  &nbsp;
 		  <?php echo remove_junk($customer['name']);?>
                   <input type="hidden" class="form-control" name="customer-name" value="<?php echo remove_junk($customer['name']);?>">
                </div>
