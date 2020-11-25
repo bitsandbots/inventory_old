@@ -23,7 +23,7 @@ $sales = find_sales_by_order_id( $d_order['id'] );
 // for each sale
 foreach ( $sales as $sale ) {
 	if ( delete_by_id('sales', (int)$sale['id']) ) {
-		increase_product_qty( $sale['quantity'], $sale['product_id'] );
+		increase_product_qty( $sale['qty'], $sale['product_id'] );
 	}
 }
 
