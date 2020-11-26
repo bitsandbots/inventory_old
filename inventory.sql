@@ -43,7 +43,7 @@ CREATE TABLE `customers` (
   `name` varchar(255) NOT NULL,
   `address` text DEFAULT NULL,
   `postcode` varchar(12) DEFAULT NULL,
-  `telephone` varchar(12) DEFAULT NULL,
+  `telephone` varchar(16) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `paymethod` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
