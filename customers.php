@@ -66,12 +66,14 @@ $all_customers = find_all('customers');
                     <td class="text-center">
 						<?php echo remove_junk($customer['postcode']);?>
 					</td>
+                   <td class="text-center">
+          					<a href="tel:<?php echo remove_junk($customer['telephone']);?>"><?php echo remove_junk($customer['telephone']);?></a>
+          				</td>
+
                     <td class="text-center">
-						<?php echo remove_junk($customer['telephone']);?>
-					</td>
-                    <td class="text-center">
-						<?php echo remove_junk($customer['email']);?>
-					</td>
+          					<a href="mailto:<?php echo remove_junk($customer['email']);?>"><?php echo remove_junk($customer['email']);?></a>
+          				</td>
+			
                     <td class="text-center">
 						<?php echo remove_junk(ucfirst($customer['paymethod']));?>
 					</td>
